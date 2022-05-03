@@ -27,6 +27,11 @@ public class TrainingsplanUebungCrossRef {
         this.uebungName = uebungName;
     }
 
+    public String getUebungName()
+    {
+        return uebungName;
+    }
+
     public Long getTrainingsplanId() {
         return trainingsplanId;
     }
