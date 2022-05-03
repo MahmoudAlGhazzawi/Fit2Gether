@@ -32,6 +32,7 @@ public class MainActivityBackend extends AppCompatActivity {
         trainingsplanViewModel = new ViewModelProvider(this).get(TrainingsplanViewModel.class);
 
 
+
         Trainingsplan pullDay = new Trainingsplan("PullDay");
         trainingsplanViewModel.insertTrainingsplan(pullDay);
 //        trainingsplanViewModel.insertTrainingsplan(new Trainingsplan("PushDay"));

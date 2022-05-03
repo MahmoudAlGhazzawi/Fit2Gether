@@ -21,7 +21,7 @@ public abstract class Datenbank extends RoomDatabase {
             instance = Room.databaseBuilder(context.getApplicationContext(),
                     Datenbank.class, "Datenbank").fallbackToDestructiveMigration().build();
         }
-        return instance;
+        return instance; 
     }
 }
 

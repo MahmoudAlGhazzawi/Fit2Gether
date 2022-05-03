@@ -10,7 +10,6 @@ import java.util.List;
 
 public class UebungRepository {
 
-    private int i;
     private UebungDao uebungDao;
     private LiveData<List<Uebung>> allUebungen;
 
