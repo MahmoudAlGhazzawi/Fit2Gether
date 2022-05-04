@@ -30,11 +30,13 @@ public class ListWorkoutsActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
 
+    public static Trainingsplan staticTrainingsplan;
+
     private ImageView addWorkout;
 
-    private ListView listView;
-
     private TrainingsplanViewModel trainingsplanViewModel;
+
+    private LiveData<List<Trainingsplan>> listTrainigplan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,14 +45,34 @@ public class ListWorkoutsActivity extends AppCompatActivity {
 
         trainingsplanViewModel = new ViewModelProvider(this).get(TrainingsplanViewModel.class);
 
+        listTrainigplan = trainingsplanViewModel.getAllTrainingsplaene();
 
 
-        RecyclerView recyclerView = findViewById(R.id.recyclerviewTrainingsPlaene);
+        recyclerView = findViewById(R.id.recyclerviewTrainingsPlaene);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
 
         TrainingsplanAdapter adapter = new TrainingsplanAdapter();
         recyclerView.setAdapter(adapter);
+
+
+        //TODO noch bearbeiten (kein UebungenAdapter ist vorhanden)
+        recyclerView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int itemPosition = recyclerView.getChildLayoutPosition(view);
+                staticTrainingsplan = listTrainigplan.getValue().get(itemPosition);
+
+                Intent intent = new Intent(ListWorkoutsActivity.this, ActivityUebungenInTrainingsplan.class);
+
+
+
+//                startActivity(intent);
+//                overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
+//                finish();
+
+            }
+        });
 
 
 
@@ -77,8 +99,10 @@ public class ListWorkoutsActivity extends AppCompatActivity {
                 Intent intent = new Intent(ListWorkoutsActivity.this, AddTrainingsplanActivity.class);
                 startActivity(intent);
                 overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
+                finish();
             }
         });
 
     }
+
 }

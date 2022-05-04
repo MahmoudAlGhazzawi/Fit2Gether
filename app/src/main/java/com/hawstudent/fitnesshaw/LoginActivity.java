@@ -2,9 +2,11 @@ package com.hawstudent.fitnesshaw;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -43,6 +45,11 @@ public class LoginActivity extends AppCompatActivity {
                 overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
             }
         });
+    }
+
+    @Override
+    public void onBackPressed(){
+        super.onBackPressed();
     }
 
     private void changeStatusBarColor(){
