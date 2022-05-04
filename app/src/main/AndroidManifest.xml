@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FitnessHAW">
         <activity
+            android:name=".AddTrainingsplanActivity"
+            android:exported="false" />
+        <activity
             android:name=".ListWorkoutsActivity"
             android:exported="false" />
         <activity

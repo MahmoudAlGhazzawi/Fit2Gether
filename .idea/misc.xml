@@ -16,8 +16,9 @@
         <entry key="..\:/Users/mahmo/AndroidStudioProjects/FitnessHAW/app/src/main/res/drawable/onboarding_indicator_inactive.xml" value="0.25" />
         <entry key="..\:/Users/mahmo/AndroidStudioProjects/FitnessHAW/app/src/main/res/drawable/round_border.xml" value="0.481" />
         <entry key="..\:/Users/mahmo/AndroidStudioProjects/FitnessHAW/app/src/main/res/drawable/round_bt.xml" value="0.3495" />
+        <entry key="..\:/Users/mahmo/AndroidStudioProjects/FitnessHAW/app/src/main/res/layout/activity_add_workoutplan.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/mahmo/AndroidStudioProjects/FitnessHAW/app/src/main/res/layout/activity_dashboard.xml" value="0.3220910623946037" />
-        <entry key="..\:/Users/mahmo/AndroidStudioProjects/FitnessHAW/app/src/main/res/layout/activity_list_workouts.xml" value="0.5" />
+        <entry key="..\:/Users/mahmo/AndroidStudioProjects/FitnessHAW/app/src/main/res/layout/activity_list_workouts.xml" value="0.33" />
         <entry key="..\:/Users/mahmo/AndroidStudioProjects/FitnessHAW/app/src/main/res/layout/activity_login.xml" value="0.33" />
         <entry key="..\:/Users/mahmo/AndroidStudioProjects/FitnessHAW/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/mahmo/AndroidStudioProjects/FitnessHAW/app/src/main/res/layout/activity_navigation_bar.xml" value="0.33" />
@@ -30,8 +31,8 @@
         <entry key="..\:/Users/mahmo/AndroidStudioProjects/FitnessHAW/app/src/main/res/layout/dashboard_item_4.xml" value="0.75" />
         <entry key="..\:/Users/mahmo/AndroidStudioProjects/FitnessHAW/app/src/main/res/layout/fragment_first.xml" value="0.55" />
         <entry key="..\:/Users/mahmo/AndroidStudioProjects/FitnessHAW/app/src/main/res/layout/item_container_onboarding.xml" value="0.3625" />
-        <entry key="..\:/Users/mahmo/AndroidStudioProjects/FitnessHAW/app/src/main/res/layout/leon_activity_main.xml" value="0.2861111111111111" />
-        <entry key="..\:/Users/mahmo/AndroidStudioProjects/FitnessHAW/app/src/main/res/layout/leon_trainingsplan_item.xml" value="0.2861111111111111" />
+        <entry key="..\:/Users/mahmo/AndroidStudioProjects/FitnessHAW/app/src/main/res/layout/leon_activity_main.xml" value="0.18" />
+        <entry key="..\:/Users/mahmo/AndroidStudioProjects/FitnessHAW/app/src/main/res/layout/leon_trainingsplan_item.xml" value="0.5" />
         <entry key="..\:/Users/mahmo/AndroidStudioProjects/FitnessHAW/app/src/main/res/menu/bottom_nav_menu.xml" value="0.55" />
       </map>
     </option>

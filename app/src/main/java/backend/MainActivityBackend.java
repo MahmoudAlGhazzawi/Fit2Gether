@@ -35,33 +35,33 @@ public class MainActivityBackend extends AppCompatActivity {
 
         Trainingsplan pullDay = new Trainingsplan("PullDay");
         trainingsplanViewModel.insertTrainingsplan(pullDay);
-//        trainingsplanViewModel.insertTrainingsplan(new Trainingsplan("PushDay"));
-//        trainingsplanViewModel.insertTrainingsplan(new Trainingsplan("LegDay"));
-//        trainingsplanViewModel.insertTrainingsplan(new Trainingsplan("Ganzkoerper"));
-//
-//        Uebung pullups = new Uebung("Pullups");
-//        trainingsplanViewModel.insertUebung(pullups);
-//        Uebung rudern = new Uebung("Rudern");
-//        trainingsplanViewModel.insertUebung(rudern);
-//        Uebung cableFlies = new Uebung("Cable Flies");
-//        trainingsplanViewModel.insertUebung(cableFlies);
-//
-//        Uebung bankdruecken = new Uebung("Bankdruecken");
-//        trainingsplanViewModel.insertUebung(bankdruecken);
-//        Uebung pushups = new Uebung("Pushups");
-//        trainingsplanViewModel.insertUebung(pushups);
-//        Uebung dips = new Uebung("Dips");
-//        trainingsplanViewModel.insertUebung(dips);
-//
-//        Uebung squads = new Uebung("Squads");
-//        trainingsplanViewModel.insertUebung(squads);
-//        Uebung legPress = new Uebung("LegPress");
-//        trainingsplanViewModel.insertUebung(legPress);
-//        Uebung calfRaises = new Uebung("Calf Raises");
-//        trainingsplanViewModel.insertUebung(calfRaises);
-//
-//        List<Uebung> list = Arrays.asList(pullups,rudern,cableFlies);
-//        trainingsplanViewModel.insertUebungenIntoTrainingplan(pullDay,list);
+        trainingsplanViewModel.insertTrainingsplan(new Trainingsplan("PushDay"));
+        trainingsplanViewModel.insertTrainingsplan(new Trainingsplan("LegDay"));
+        trainingsplanViewModel.insertTrainingsplan(new Trainingsplan("Ganzkoerper"));
+
+        Uebung pullups = new Uebung("Pullups");
+        trainingsplanViewModel.insertUebung(pullups);
+        Uebung rudern = new Uebung("Rudern");
+        trainingsplanViewModel.insertUebung(rudern);
+        Uebung cableFlies = new Uebung("Cable Flies");
+        trainingsplanViewModel.insertUebung(cableFlies);
+
+        Uebung bankdruecken = new Uebung("Bankdruecken");
+        trainingsplanViewModel.insertUebung(bankdruecken);
+        Uebung pushups = new Uebung("Pushups");
+        trainingsplanViewModel.insertUebung(pushups);
+        Uebung dips = new Uebung("Dips");
+        trainingsplanViewModel.insertUebung(dips);
+
+        Uebung squads = new Uebung("Squads");
+        trainingsplanViewModel.insertUebung(squads);
+        Uebung legPress = new Uebung("LegPress");
+        trainingsplanViewModel.insertUebung(legPress);
+        Uebung calfRaises = new Uebung("Calf Raises");
+        trainingsplanViewModel.insertUebung(calfRaises);
+
+        List<Uebung> list = Arrays.asList(pullups,rudern,cableFlies);
+        trainingsplanViewModel.insertUebungenIntoTrainingplan(pullDay,list);
 
 
 
