@@ -3,6 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/leonk/AndroidStudioProjects/sea2_myfitnessapp/app/src/main/res/layout/activity_list_workouts.xml" value="0.34646739130434784" />
+        <entry key="..\:/Users/leonk/AndroidStudioProjects/sea2_myfitnessapp/app/src/main/res/layout/activity_uebungen_in_trainingsplan.xml" value="0.34646739130434784" />
+        <entry key="..\:/Users/leonk/AndroidStudioProjects/sea2_myfitnessapp/app/src/main/res/layout/leon_activity_main.xml" value="0.20208333333333334" />
+        <entry key="..\:/Users/leonk/AndroidStudioProjects/sea2_myfitnessapp/app/src/main/res/layout/leon_trainingsplan_item.xml" value="0.34646739130434784" />
+        <entry key="..\:/Users/leonk/OneDrive/Desktop/4.Semester/SEA2/sea2_myfitnessapp/app/src/main/res/layout/activity_list_workouts.xml" value="0.3482789855072464" />
+        <entry key="..\:/Users/leonk/OneDrive/Desktop/4.Semester/SEA2/sea2_myfitnessapp/app/src/main/res/layout/activity_uebungen_in_trainingsplan.xml" value="0.3482789855072464" />
+        <entry key="..\:/Users/leonk/OneDrive/Desktop/4.Semester/SEA2/sea2_myfitnessapp/app/src/main/res/layout/dashboard_item_2.xml" value="0.3482789855072464" />
+        <entry key="..\:/Users/leonk/OneDrive/Desktop/4.Semester/SEA2/sea2_myfitnessapp/app/src/main/res/layout/leon_trainingsplan_item.xml" value="0.3482789855072464" />
         <entry key="..\:/Users/mahmo/AndroidStudioProjects/FitnessHAW/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.484" />
         <entry key="..\:/Users/mahmo/AndroidStudioProjects/FitnessHAW/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.344" />
         <entry key="..\:/Users/mahmo/AndroidStudioProjects/FitnessHAW/app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.344" />

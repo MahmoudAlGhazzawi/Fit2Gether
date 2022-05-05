@@ -15,15 +15,20 @@ import com.hawstudent.fitnesshaw.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TrainingsplanAdapter extends RecyclerView.Adapter <TrainingsplanAdapter.TrainingsplanHolder>{
+public class TrainingsplanAdapter extends RecyclerView.Adapter <TrainingsplanAdapter.TrainingsplanHolder> {
 
     private List<Trainingsplan> trainingsplaene = new ArrayList<>();
+    private OnTrainingsplanListener mOnTrainingplanListener;
+
+    public TrainingsplanAdapter(OnTrainingsplanListener onTrainingsplanListener) {
+        mOnTrainingplanListener = onTrainingsplanListener;
+    }
 
     @NonNull
     @Override
     public TrainingsplanHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.leon_trainingsplan_item,parent,false);
-        return new TrainingsplanHolder(view);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.leon_trainingsplan_item, parent, false);
+        return new TrainingsplanHolder(view, mOnTrainingplanListener);
     }
 
     @Override
@@ -33,22 +38,17 @@ public class TrainingsplanAdapter extends RecyclerView.Adapter <TrainingsplanAda
         holder.textTrainingsPlanDescription.setText("");
 
 
-        if(currentPlan.getTpName().contains("Pull")) {
+        if (currentPlan.getTpName().contains("Pull")) {
             holder.imageTrainingsPlan.setImageResource(R.drawable.pull_day);
-        }
-        else if(currentPlan.getTpName().contains("Push")){
+        } else if (currentPlan.getTpName().contains("Push")) {
             holder.imageTrainingsPlan.setImageResource(R.drawable.bench_press);
-        }
-        else if(currentPlan.getTpName().contains("Leg")){
+        } else if (currentPlan.getTpName().contains("Leg")) {
             holder.imageTrainingsPlan.setImageResource(R.drawable.leg_day);
-        }
-        else if(currentPlan.getTpName().contains("Ganz")){
+        } else if (currentPlan.getTpName().contains("Ganz")) {
             holder.imageTrainingsPlan.setImageResource(R.drawable.ganz_koerper);
-        }
-        else if(currentPlan.getTpName().contains("Arm")){
+        } else if (currentPlan.getTpName().contains("Arm")) {
             holder.imageTrainingsPlan.setImageResource(R.drawable.arm);
-        }
-        else {
+        } else {
             holder.imageTrainingsPlan.setImageResource(R.drawable.default_workout);
         }
     }
@@ -58,20 +58,33 @@ public class TrainingsplanAdapter extends RecyclerView.Adapter <TrainingsplanAda
         return trainingsplaene.size();
     }
 
-    public void setTrainingsplaene(List<Trainingsplan> trainingsplaene){
+    public void setTrainingsplaene(List<Trainingsplan> trainingsplaene) {
         this.trainingsplaene = trainingsplaene;
         notifyDataSetChanged();
     }
-    class TrainingsplanHolder extends RecyclerView.ViewHolder{
+
+    class TrainingsplanHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private TextView textTrainingsPlanUeberschrift;
         private TextView textTrainingsPlanDescription;
         private ImageView imageTrainingsPlan;
+        OnTrainingsplanListener onTrainingsplanListener;
 
-        public TrainingsplanHolder(@NonNull View itemView) {
+        public TrainingsplanHolder(@NonNull View itemView, OnTrainingsplanListener onTrainingsplanListener) {
             super(itemView);
             textTrainingsPlanUeberschrift = itemView.findViewById(R.id.trainingsPlanUeberschrift);
             textTrainingsPlanDescription = itemView.findViewById(R.id.trainingsPlanDescription);
             imageTrainingsPlan = itemView.findViewById(R.id.trainingsPlanImage);
+            itemView.setOnClickListener(this);
+            this.onTrainingsplanListener = onTrainingsplanListener;
         }
+
+        @Override
+        public void onClick(View view) {
+            onTrainingsplanListener.onTrainingsplanClick(trainingsplaene.get(getAdapterPosition()));
+        }
+    }
+
+    public interface OnTrainingsplanListener {
+        void onTrainingsplanClick(Trainingsplan trainingsplan);
     }
 }

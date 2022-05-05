@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class MainActivityBackend extends AppCompatActivity {
+public class MainActivityBackend extends AppCompatActivity implements TrainingsplanAdapter.OnTrainingsplanListener {
     private TrainingsplanViewModel trainingsplanViewModel;
 
 
@@ -71,7 +71,7 @@ public class MainActivityBackend extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
 
-        TrainingsplanAdapter adapter = new TrainingsplanAdapter();
+        TrainingsplanAdapter adapter = new TrainingsplanAdapter(this);
         recyclerView.setAdapter(adapter);
 
         trainingsplanViewModel.getAllTrainingsplaene().observe(this, new Observer<List<Trainingsplan>>() {
@@ -81,5 +81,10 @@ public class MainActivityBackend extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public void onTrainingsplanClick(Trainingsplan trainingsplan) {
+        
     }
 }
