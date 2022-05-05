@@ -38,30 +38,19 @@ public class ActivityUebungenInTrainingsplan extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_uebungen_in_trainingsplan);
 
-        trainingsplanName = findViewById(R.id.trainingsPlanUeberschrift);
+        Trainingsplan trainingsplan =(Trainingsplan) getIntent().getSerializableExtra("EXTRA_TRAININGSPLAN");
+        Log.d(TAG, "onCreate: " + trainingsplan.getTrainingsplanId());
+
+        trainingsplanName = findViewById(R.id.textMyTrainingsplanUeberschrift);
         trainingsplanViewModel = new ViewModelProvider(this).get(TrainingsplanViewModel.class);
         recyclerView = findViewById(R.id.recyclerviewUebungen);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
+        trainingsplanName.setText(trainingsplan.getTpName());
 
-        Trainingsplan trainingsplan =(Trainingsplan) getIntent().getSerializableExtra("EXTRA_TRAININGSPLAN");
-//        Log.d(TAG, "onCreate: " + trainingsplan.getTrainingsplanId());
 
         CrossRefAdapter adapter = new CrossRefAdapter(trainingsplan);
         recyclerView.setAdapter(adapter);
-
-        //TODO noch bearbeiten (kein UebungenAdapter ist vorhanden)
-//        TrainingsplanAdapter adapter = new TrainingsplanAdapter();
-//        recyclerView.setAdapter(adapter);
-//
-//        recyclerView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                trainingsplanViewModel.getAllUebungenByTrainingsplan(staticTrainingsplan);
-//
-//                trainingsplanName.setText(staticTrainingsplan.getTpName());
-//            }
-//        });
 
 
         trainingsplanViewModel.getAllUebungenByTrainingsplan(trainingsplan).observe(this, new Observer<List<TrainingsplanUebungCrossRef>>() {

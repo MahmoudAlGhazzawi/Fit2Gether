@@ -59,28 +59,6 @@ public class ListWorkoutsActivity extends AppCompatActivity implements Trainings
         recyclerView.setAdapter(adapter);
 
 
-        //TODO noch bearbeiten (kein UebungenAdapter ist vorhanden)
-//        recyclerView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                int itemPosition = recyclerView.getChildLayoutPosition(view);
-//                staticTrainingsplan = listTrainigplan.getValue().get(itemPosition);
-//
-//                Intent intent = new Intent(ListWorkoutsActivity.this, ActivityUebungenInTrainingsplan.class);
-//
-//
-//
-////                startActivity(intent);
-////                overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
-////                finish();
-//
-//            }
-//        });
-
-
-
-
-
         ArrayList<TrainingsItems> trainingsItems = new ArrayList<>();
         trainingsItems.add(new TrainingsItems(R.drawable.deadlift, "Line 1", "Line 2"));
         trainingsItems.add(new TrainingsItems(R.drawable.deadlift, "Line 1", "Line 2"));

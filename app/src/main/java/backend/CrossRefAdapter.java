@@ -28,16 +28,14 @@ public class CrossRefAdapter extends RecyclerView.Adapter<CrossRefAdapter.CrossR
     @NonNull
     @Override
     public CrossRefHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_uebungen_in_trainingsplan, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.leon_trainingsplan_item, parent, false);
         return new CrossRefHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull CrossRefHolder holder, int position) {
     TrainingsplanUebungCrossRef currentUebung = uebungen.get(position);
-    holder.textUeberschrift.setText(trainingsplan.getTpName());
     holder.textUebungName.setText(currentUebung.getUebungName());
-    holder.imageUebung.setImageResource(R.drawable.default_workout);
     }
 
     @Override
@@ -58,9 +56,8 @@ public class CrossRefAdapter extends RecyclerView.Adapter<CrossRefAdapter.CrossR
 
         public CrossRefHolder(@NonNull View itemView) {
             super(itemView);
-            textUeberschrift = itemView.findViewById(R.id.textMyTrainingsplanUeberschrift);
             textUebungName = itemView.findViewById(R.id.trainingsPlanUeberschrift);
-            imageUebung = itemView.findViewById(R.id.addUebung);
+            imageUebung = itemView.findViewById(R.id.trainingsPlanImage);
         }
     }
 }
