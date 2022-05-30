@@ -57,6 +57,11 @@ public class TrainingsplanRepository {
         new updateCrossRefAT(trainingsplanDao).execute(crossRef);
     }
 
+    public void deleteCrossRef(TrainingsplanUebungCrossRef crossRef)
+    {
+        new DeleteCrossRefAT(trainingsplanDao).execute(crossRef);
+    }
+
     public void insertCrossRef(List<TrainingsplanUebungCrossRef> crossRefs)
     {
         new InsertCrossRefAT(trainingsplanDao).execute(crossRefs);
@@ -148,6 +153,20 @@ public class TrainingsplanRepository {
         @Override
         protected Void doInBackground(TrainingsplanUebungCrossRef... trainingsplanUebungCrossRefs) {
             trainingsplanDao.updateCrossRef(trainingsplanUebungCrossRefs[0]);
+            return null;
+        }
+    }
+
+    private static class DeleteCrossRefAT extends AsyncTask<TrainingsplanUebungCrossRef,Void,Void>{
+        private TrainingsplanDao trainingsplanDao;
+        private DeleteCrossRefAT(TrainingsplanDao trainingsplanDao)
+        {
+            this.trainingsplanDao = trainingsplanDao;
+        }
+
+        @Override
+        protected Void doInBackground(TrainingsplanUebungCrossRef...crossRefs){
+            trainingsplanDao.deleteCrossRef(crossRefs[0]);
             return null;
         }
     }

@@ -45,6 +45,9 @@ public interface TrainingsplanDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     public void insertCrossRef(List<TrainingsplanUebungCrossRef> crossRefs);
 
+    @Delete
+    public void deleteCrossRef(TrainingsplanUebungCrossRef crossRef);
+
     @Transaction
     @Update(onConflict = OnConflictStrategy.IGNORE)
     public void updateCrossRef(TrainingsplanUebungCrossRef crossRef);

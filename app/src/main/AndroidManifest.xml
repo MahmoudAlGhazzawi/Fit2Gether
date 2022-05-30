@@ -10,10 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FitnessHAW">
         <activity
-            android:name=".AddTrainingsplanActivity"
+            android:name=".Trainingsplaene.AddTrainingsplanActivity"
             android:exported="false" />
         <activity
-            android:name=".ListWorkoutsActivity"
+            android:name=".Trainingsplaene.ListWorkoutsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Uebungen.AddUebungInTrainingsplanActivity"
             android:exported="false" />
         <activity
             android:name=".DashboardActivity"
@@ -28,7 +31,10 @@
             android:name=".SignUpActivity"
             android:exported="false" />
         <activity
-            android:name=".ActivityUebungenInTrainingsplan"
+            android:name=".Uebungen.AddUebungMitZahlenActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Uebungen.ActivityUebungenInTrainingsplan"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

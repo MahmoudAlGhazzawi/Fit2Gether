@@ -1,4 +1,4 @@
-package backend;
+package com.hawstudent.fitnesshaw.Uebungen;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +13,9 @@ import com.hawstudent.fitnesshaw.R;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import backend.Trainingsplan;
+import backend.TrainingsplanUebungCrossRef;
 
 public class CrossRefAdapter extends RecyclerView.Adapter<CrossRefAdapter.CrossRefHolder> {
 
@@ -36,6 +39,11 @@ public class CrossRefAdapter extends RecyclerView.Adapter<CrossRefAdapter.CrossR
     public void onBindViewHolder(@NonNull CrossRefHolder holder, int position) {
     TrainingsplanUebungCrossRef currentUebung = uebungen.get(position);
     holder.textUebungName.setText(currentUebung.getUebungName());
+    }
+
+    public TrainingsplanUebungCrossRef getCrossRefAt(int position)
+    {
+        return uebungen.get(position);
     }
 
     @Override

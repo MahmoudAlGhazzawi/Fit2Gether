@@ -1,6 +1,7 @@
 package com.hawstudent.fitnesshaw;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.content.Intent;
@@ -8,8 +9,13 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
+
+import backend.Trainingsplan;
+import backend.TrainingsplanViewModel;
+import backend.Uebung;
 
 public class MainActivity extends AppCompatActivity {
 

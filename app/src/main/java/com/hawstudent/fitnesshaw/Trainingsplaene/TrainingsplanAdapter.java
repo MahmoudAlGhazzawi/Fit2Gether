@@ -1,4 +1,4 @@
-package backend;
+package com.hawstudent.fitnesshaw.Trainingsplaene;
 
 
 import android.view.LayoutInflater;
@@ -14,6 +14,8 @@ import com.hawstudent.fitnesshaw.R;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import backend.Trainingsplan;
 
 public class TrainingsplanAdapter extends RecyclerView.Adapter <TrainingsplanAdapter.TrainingsplanHolder> {
 

@@ -7,8 +7,10 @@ import androidx.room.Entity;
 import androidx.room.OnConflictStrategy;
 import androidx.room.PrimaryKey;
 
+import java.io.Serializable;
+
 @Entity
-public class Uebung {
+public class Uebung implements Serializable {
 
     @PrimaryKey(autoGenerate = true)
     private long uebungId;

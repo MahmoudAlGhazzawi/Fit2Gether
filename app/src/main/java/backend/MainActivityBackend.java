@@ -1,24 +1,17 @@
 package backend;
 
 
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.LifecycleOwner;
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.room.Dao;
 
-import android.app.Application;
-import android.os.Build;
 import android.os.Bundle;
-import android.widget.Toast;
 
 import com.hawstudent.fitnesshaw.R;
+import com.hawstudent.fitnesshaw.Trainingsplaene.TrainingsplanAdapter;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 

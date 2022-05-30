@@ -1,4 +1,4 @@
-package com.hawstudent.fitnesshaw;
+package com.hawstudent.fitnesshaw.Trainingsplaene;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.LiveData;
@@ -7,24 +7,20 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.Application;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.Toast;
+
+import com.hawstudent.fitnesshaw.Uebungen.ActivityUebungenInTrainingsplan;
+import com.hawstudent.fitnesshaw.R;
+import com.hawstudent.fitnesshaw.TrainingsItems;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import backend.Trainingsplan;
-import backend.TrainingsplanAdapter;
 import backend.TrainingsplanViewModel;
 import backend.Uebung;
 
@@ -59,12 +55,12 @@ public class ListWorkoutsActivity extends AppCompatActivity implements Trainings
         recyclerView.setAdapter(adapter);
 
 
-        ArrayList<TrainingsItems> trainingsItems = new ArrayList<>();
-        trainingsItems.add(new TrainingsItems(R.drawable.deadlift, "Line 1", "Line 2"));
-        trainingsItems.add(new TrainingsItems(R.drawable.deadlift, "Line 1", "Line 2"));
-        trainingsItems.add(new TrainingsItems(R.drawable.deadlift, "Line 1", "Line 2"));
+//        ArrayList<TrainingsItems> trainingsItems = new ArrayList<>();
+//        trainingsItems.add(new TrainingsItems(R.drawable.deadlift, "Line 1", "Line 2"));
+//        trainingsItems.add(new TrainingsItems(R.drawable.deadlift, "Line 1", "Line 2"));
+//        trainingsItems.add(new TrainingsItems(R.drawable.deadlift, "Line 1", "Line 2"));
 
-        trainingsplanViewModel.insertUebung(new Uebung("testUebung"));
+
         trainingsplanViewModel.getAllTrainingsplaene().observe(this, new Observer<List<Trainingsplan>>() {
             @Override
             public void onChanged(List<Trainingsplan> trainingsplans) {
