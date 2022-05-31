@@ -65,6 +65,10 @@ public class TrainingsplanAdapter extends RecyclerView.Adapter <TrainingsplanAda
         notifyDataSetChanged();
     }
 
+    public Trainingsplan getTraingingsplanAt(int position){
+        return trainingsplaene.get(position);
+    }
+
     class TrainingsplanHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private TextView textTrainingsPlanUeberschrift;
         private TextView textTrainingsPlanDescription;

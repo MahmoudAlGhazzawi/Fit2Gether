@@ -53,6 +53,10 @@ public interface TrainingsplanDao {
     public void updateCrossRef(TrainingsplanUebungCrossRef crossRef);
 
     @Transaction
+    @Query("DELETE FROM TrainingsplanUebungCrossRef WHERE trainingsplanId = :trainingsplanId")
+    public void deleteCrossRefByTrainingsplan(long trainingsplanId);
+
+    @Transaction
     @Query("SELECT * FROM Trainingsplan WHERE trainingsplanId =:trainingsplanId")
     public LiveData<TrainingsplanWithUebungen> getPlanWithUebungen(long trainingsplanId);
 }

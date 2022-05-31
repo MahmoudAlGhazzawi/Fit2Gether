@@ -85,6 +85,10 @@ public class TrainingsplanViewModel extends AndroidViewModel {
         repository.deleteCrossRef(crossRef);
     }
 
+    public void deleteCrossRefByTrainingsplan(Trainingsplan trainingsplan){
+        repository.deleteCrossRefByTrainingsplan(trainingsplan.getTrainingsplanId());
+    }
+
     public void insertUebungenIntoTrainingplan(Trainingsplan trainingsplan, List<Uebung> uebungen) {
         List<TrainingsplanUebungCrossRef> crossRefList = new ArrayList<>();
         for(int i = 0; i< uebungen.size();i++)

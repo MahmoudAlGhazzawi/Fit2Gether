@@ -1,17 +1,22 @@
 package com.hawstudent.fitnesshaw.Trainingsplaene;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.hawstudent.fitnesshaw.Uebungen.ActivityUebungenInTrainingsplan;
 import com.hawstudent.fitnesshaw.R;
@@ -82,6 +87,35 @@ public class ListWorkoutsActivity extends AppCompatActivity implements Trainings
             }
         });
 
+        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(ListWorkoutsActivity.this);
+                builder.setTitle("Willst du " + adapter.getTraingingsplanAt(viewHolder.getAdapterPosition()).getTpName() + " wirklich löschen?");
+                builder.setNegativeButton("Nein", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.cancel();
+                        adapter.notifyDataSetChanged();
+                    }
+                });
+                builder.setPositiveButton("Ja", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        trainingsplanViewModel.deleteTrainingsplan(adapter.getTraingingsplanAt(viewHolder.getAdapterPosition()));
+                        trainingsplanViewModel.deleteCrossRefByTrainingsplan(adapter.getTraingingsplanAt(viewHolder.getAdapterPosition()));
+                        Toast.makeText(ListWorkoutsActivity.this,
+                                adapter.getTraingingsplanAt(viewHolder.getAdapterPosition()).getTpName() +"  entfernt", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                builder.show();
+            }
+        }).attachToRecyclerView(recyclerView);
     }
 
     @Override
