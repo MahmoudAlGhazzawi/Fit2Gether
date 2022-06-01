@@ -28,7 +28,7 @@ public class UebungenAdapter extends RecyclerView.Adapter<UebungenAdapter.Uebung
     @NonNull
     @Override
     public UebungHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.leon_trainingsplan_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.uebung_item, parent, false);
         return new UebungHolder(view,mOnUebungListener);
     }
 
@@ -36,6 +36,28 @@ public class UebungenAdapter extends RecyclerView.Adapter<UebungenAdapter.Uebung
     public void onBindViewHolder(@NonNull UebungHolder holder, int position) {
         Uebung currentUebung = uebungen.get(position);
         holder.textUebungName.setText(currentUebung.getUebungName());
+
+        //
+        if (currentUebung.getUebungName().contains("Pullups")) {
+            holder.imageUebung.setImageResource(R.drawable.pullup_img);
+        } else if (currentUebung.getUebungName().contains("Rudern")) {
+            holder.imageUebung.setImageResource(R.drawable.rudern_img);
+        }else if (currentUebung.getUebungName().contains("Cable Flies")) {
+            holder.imageUebung.setImageResource(R.drawable.cableflies_img);
+        }else if (currentUebung.getUebungName().contains("Bankdruecken")) {
+            holder.imageUebung.setImageResource(R.drawable.bankdruecken_img);
+        }else if (currentUebung.getUebungName().contains("Pushups")) {
+            holder.imageUebung.setImageResource(R.drawable.pushup_img);
+        }else if (currentUebung.getUebungName().contains("Dips")) {
+            holder.imageUebung.setImageResource(R.drawable.dips_img);
+        }else if (currentUebung.getUebungName().contains("Squads")) {
+            holder.imageUebung.setImageResource(R.drawable.squads_img);
+        }else if (currentUebung.getUebungName().contains("LegPress")) {
+            holder.imageUebung.setImageResource(R.drawable.legpress_img);
+        }else if (currentUebung.getUebungName().contains("Calf Raises")) {
+            holder.imageUebung.setImageResource(R.drawable.calfraises_img);
+        }
+
     }
 
     @Override
@@ -58,8 +80,8 @@ public class UebungenAdapter extends RecyclerView.Adapter<UebungenAdapter.Uebung
 
         public UebungHolder(@NonNull View itemView, OnUebungListener onUebungListener) {
             super(itemView);
-            textUebungName = itemView.findViewById(R.id.trainingsPlanUeberschrift);
-            imageUebung = itemView.findViewById(R.id.trainingsPlanImage);
+            textUebungName = itemView.findViewById(R.id.uebungUeberschrift);
+            imageUebung = itemView.findViewById(R.id.uebungImage);
             itemView.setOnClickListener(this);
             this.onUebungListener = onUebungListener;
         }

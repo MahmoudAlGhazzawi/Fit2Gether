@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +30,7 @@ public class AddUebungMitZahlenActivity extends AppCompatActivity {
     private EditText gewicht;
     private EditText wdh;
     private EditText saetze;
+    private ImageView uebungImage;
 
     private TrainingsplanViewModel trainingsplanViewModel;
 
@@ -44,6 +46,9 @@ public class AddUebungMitZahlenActivity extends AppCompatActivity {
         gewicht = findViewById(R.id.editTextGewicht);
         wdh = findViewById(R.id.editTextWiederholungen);
         saetze = findViewById(R.id.editTextSaetze);
+        uebungImage = findViewById(R.id.uebungZahlenImage);
+
+
 
         trainingsplanViewModel = new ViewModelProvider(this).get(TrainingsplanViewModel.class);
 
@@ -51,6 +56,27 @@ public class AddUebungMitZahlenActivity extends AppCompatActivity {
         Uebung uebung =(Uebung) getIntent().getSerializableExtra("EXTRA_UEBUNG");
         Trainingsplan trainingsplan = (Trainingsplan) getIntent().getSerializableExtra("EXTRA_TRAININGSPLAN");
         uebungName.setText(uebung.getUebungName());
+
+        // TODO: noch nicht so schön implementiert
+        if (uebungName.getText().toString().contains("Pullups")) {
+            uebungImage.setImageResource(R.drawable.pullup_img);
+        } else if (uebungName.getText().toString().contains("Rudern")) {
+            uebungImage.setImageResource(R.drawable.rudern_img);
+        }else if (uebungName.getText().toString().contains("Cable Flies")) {
+            uebungImage.setImageResource(R.drawable.cableflies_img);
+        }else if (uebungName.getText().toString().contains("Bankdruecken")) {
+            uebungImage.setImageResource(R.drawable.bankdruecken_img);
+        }else if (uebungName.getText().toString().contains("Pushups")) {
+            uebungImage.setImageResource(R.drawable.pushup_img);
+        }else if (uebungName.getText().toString().contains("Dips")) {
+            uebungImage.setImageResource(R.drawable.dips_img);
+        }else if (uebungName.getText().toString().contains("Squads")) {
+            uebungImage.setImageResource(R.drawable.squads_img);
+        }else if (uebungName.getText().toString().contains("LegPress")) {
+            uebungImage.setImageResource(R.drawable.legpress_img);
+        }else if (uebungName.getText().toString().contains("Calf Raises")) {
+            uebungImage.setImageResource(R.drawable.calfraises_img);
+        }
 
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override

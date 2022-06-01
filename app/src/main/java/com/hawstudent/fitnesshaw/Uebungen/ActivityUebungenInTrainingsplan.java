@@ -37,6 +37,11 @@ public class ActivityUebungenInTrainingsplan extends AppCompatActivity {
 
     private TrainingsplanViewModel trainingsplanViewModel;
 
+    private TextView weight;
+    private TextView sets;
+    private TextView repeats;
+    private ImageView uebungImage;
+
 
 
     @Override
@@ -56,8 +61,41 @@ public class ActivityUebungenInTrainingsplan extends AppCompatActivity {
         trainingsplanName.setText(trainingsplan.getTpName());
 
 
+
         CrossRefAdapter adapter = new CrossRefAdapter(trainingsplan);
         recyclerView.setAdapter(adapter);
+
+        // TODO: ergänzen um layout trainingsplan_uebungen_item zu benutzen
+
+        /*
+        weight = findViewById(R.id.kgText);
+        sets = findViewById(R.id.setsText);
+        repeats = findViewById(R.id.repeatsText);
+        uebungImage = findViewById(R.id.uebungImageTrainingsplan);
+
+
+
+        if (trainingsplanName.getText().toString().contains("Pullups")) {
+            uebungImage.setImageResource(R.drawable.pullup_img);
+        } else if (trainingsplanName.getText().toString().contains("Rudern")) {
+            uebungImage.setImageResource(R.drawable.rudern_img);
+        }else if (trainingsplanName.getText().toString().contains("Cable Flies")) {
+            uebungImage.setImageResource(R.drawable.cableflies_img);
+        }else if (trainingsplanName.getText().toString().contains("Bankdruecken")) {
+            uebungImage.setImageResource(R.drawable.bankdruecken_img);
+        }else if (trainingsplanName.getText().toString().contains("Pushups")) {
+            uebungImage.setImageResource(R.drawable.pushup_img);
+        }else if (trainingsplanName.getText().toString().contains("Dips")) {
+            uebungImage.setImageResource(R.drawable.dips_img);
+        }else if (trainingsplanName.getText().toString().contains("Squads")) {
+            uebungImage.setImageResource(R.drawable.squads_img);
+        }else if (trainingsplanName.getText().toString().contains("LegPress")) {
+            uebungImage.setImageResource(R.drawable.legpress_img);
+        }else if (trainingsplanName.getText().toString().contains("Calf Raises")) {
+            uebungImage.setImageResource(R.drawable.calfraises_img);
+        }
+        */
+
 
 
         trainingsplanViewModel.getAllUebungenByTrainingsplan(trainingsplan).observe(this, new Observer<List<TrainingsplanUebungCrossRef>>() {

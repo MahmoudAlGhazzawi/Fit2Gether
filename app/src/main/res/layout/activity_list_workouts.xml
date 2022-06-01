@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Trainingsplaene.ListWorkoutsActivity">
+    tools:context=".Trainingsplaene.ListWorkoutsActivity"
+    android:backgroundTint="@color/background">
 
     <TextView
         android:id="@+id/textMyWorkouts"
@@ -15,7 +16,7 @@
         android:layout_marginStart="144dp"
         android:layout_marginTop="9dp"
         android:text="My Workouts"
-        android:textColor="@color/black"
+        android:textColor="@color/colorPrimary"
         android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,6 +29,7 @@
         android:layout_height="match_parent"
         android:layout_marginTop="50dp"
         android:layout_marginBottom="75dp"
+        android:backgroundTint="@color/background"
         android:padding="4dp"
         android:scrollbars="vertical"
         tools:listitem="@layout/leon_trainingsplan_item" />
@@ -42,6 +44,7 @@
         android:layout_marginStart="170dp"
         android:layout_marginEnd="170dp"
         android:layout_marginBottom="6dp"
+        android:backgroundTint="@color/background"
         app:srcCompat="@drawable/add_circle" />
 
 </RelativeLayout>
