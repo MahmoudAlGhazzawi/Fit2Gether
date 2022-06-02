@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FitnessHAW">
         <activity
+            android:name=".Session.SessionCreateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Session.SessionWhatActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Session.SessionJoinActivity"
+            android:exported="false" />
+        <activity
             android:name=".Trainingsplaene.AddTrainingsplanActivity"
             android:exported="false" />
         <activity
