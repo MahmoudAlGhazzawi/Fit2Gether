@@ -1,27 +1,81 @@
 package com.hawstudent.fitnesshaw.Session;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.database.DatabaseReference;
 import com.hawstudent.fitnesshaw.R;
+import com.hawstudent.fitnesshaw.Trainingsplaene.AddTrainingsplanActivity;
+import com.hawstudent.fitnesshaw.Trainingsplaene.TrainingsplanAdapter;
 
-public class SessionCreateActivity extends AppCompatActivity {
+import java.util.List;
+
+import backend.Trainingsplan;
+import backend.TrainingsplanUebungCrossRef;
+import backend.TrainingsplanViewModel;
+
+public class SessionCreateActivity extends AppCompatActivity implements TrainingsplanAdapter.OnTrainingsplanListener{
+
+    private RecyclerView recyclerView;
+
+    private TrainingsplanViewModel trainingsplanViewModel;
+
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.marvin_session_create);
+        setContentView(R.layout.activity_list_workouts);
 
-        //TODO: Ansicht wie: "My Workouts" ohne plus unten
-        // + Auf workout drauf klicken sieht man auch die übungen
-        // + ohne plus unten, da eher commit oder so um das workout für die session freizugeben
-        // + get workout -> übungen - pro übung: name/sätze/wiederholungen/gewicht in die DB firebase
-        // + andere können über generierte ID Session ansehen und das workout trainiren
-        // + übersicht von allen selbst geöffneten sessions -> option zu schließen und ansicht der ID
+        trainingsplanViewModel = new ViewModelProvider(this).get(TrainingsplanViewModel.class);
 
 
 
+        recyclerView = findViewById(R.id.recyclerviewTrainingsPlaene);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setHasFixedSize(true);
 
+        TrainingsplanAdapter adapter = new TrainingsplanAdapter(this);
+        recyclerView.setAdapter(adapter);
+
+        trainingsplanViewModel.getAllTrainingsplaene().observe(this, new Observer<List<Trainingsplan>>() {
+            @Override
+            public void onChanged(List<Trainingsplan> trainingsplans) {
+                adapter.setTrainingsplaene(trainingsplans);
+            }
+        });
+
+
+
+
+
+
+    }
+
+    @Override
+    public void onTrainingsplanClick(Trainingsplan trainingsplan) {
+        FirebaseConnection firebaseConnection = new FirebaseConnection(trainingsplanViewModel);
+        trainingsplanViewModel.getAllUebungenByTrainingsplan(trainingsplan).observe(this, new Observer<List<TrainingsplanUebungCrossRef>>() {
+            @Override
+            public void onChanged(List<TrainingsplanUebungCrossRef> uebungen) {
+                String sessionId;
+                sessionId = firebaseConnection.createSession(uebungen);
+
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("SessionId", sessionId);
+                clipboard.setPrimaryClip(clip);
+            }
+        });
+
+    Toast.makeText(SessionCreateActivity.this, "Session erstellt und ID in Zwischenablage!", Toast.LENGTH_LONG).show();
     }
 }

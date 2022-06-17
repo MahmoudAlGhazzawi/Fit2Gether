@@ -1,5 +1,10 @@
 package com.hawstudent.fitnesshaw.Session;
 
+import java.util.List;
+
+import backend.Trainingsplan;
+import backend.TrainingsplanUebungCrossRef;
+
 //Man sieht nur fortschritt von freunden? - macht es einfacher
 // -> Deren Trainingsplan wird geladen mit gewichten etc und freunde können mit der SessionID(key) darauf zugreifen und sich das ansehen
 public class Session {
@@ -8,16 +13,26 @@ public class Session {
     private int workout_saetze;
     private int workout_wiederholungen;
     private int workout_gewicht;
+    private List<TrainingsplanUebungCrossRef> crossRefList;
 
-    public Session(int id, String workout_name, int workout_saetze, int workout_wiederholungen, int workout_gewicht) {
+    public Session(int id, String workout_name, int workout_saetze, int workout_wiederholungen, int workout_gewicht, List<TrainingsplanUebungCrossRef> list) {
         this.id = id;
         this.workout_name = workout_name;
         this.workout_saetze = workout_saetze;
         this.workout_wiederholungen = workout_wiederholungen;
         this.workout_gewicht = workout_gewicht;
+        crossRefList = list;
     }
 
     public Session() {
+    }
+
+    public List<TrainingsplanUebungCrossRef> getCrossRefList() {
+        return crossRefList;
+    }
+
+    public void setCrossRefList(List<TrainingsplanUebungCrossRef> crossRefList) {
+        this.crossRefList = crossRefList;
     }
 
     public int getId() {
