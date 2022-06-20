@@ -27,6 +27,22 @@ public class TrainingsplanUebungCrossRef {
         this.uebungName = uebungName;
     }
 
+    public TrainingsplanUebungCrossRef(){
+
+    }
+
+    public void setTrainingsplanId(@NonNull Long trainingsplanId) {
+        this.trainingsplanId = trainingsplanId;
+    }
+
+    public void setUebungId(@NonNull Long uebungId) {
+        this.uebungId = uebungId;
+    }
+
+    public void setUebungName(String uebungName) {
+        this.uebungName = uebungName;
+    }
+
     public String getUebungName()
     {
         return uebungName;

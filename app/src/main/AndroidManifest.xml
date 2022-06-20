@@ -16,6 +16,9 @@
             android:name=".Session.SessionWhatActivity"
             android:exported="false" />
         <activity
+            android:name=".Session.SessionActivity_ShowJoined"
+            android:exported="false" />
+        <activity
             android:name=".Session.SessionJoinActivity"
             android:exported="false" />
         <activity
@@ -38,6 +41,9 @@
             android:exported="false" />
         <activity
             android:name=".SignUpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Session.SessionActivity_ShowCreated"
             android:exported="false" />
         <activity
             android:name=".Uebungen.AddUebungMitZahlenActivity"

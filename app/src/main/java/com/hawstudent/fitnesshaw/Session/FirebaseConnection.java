@@ -14,7 +14,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import backend.Trainingsplan;
 import backend.TrainingsplanUebungCrossRef;
@@ -22,13 +24,9 @@ import backend.TrainingsplanViewModel;
 
 public class FirebaseConnection {
 
+    private boolean sessionExists = false;
     DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("workout");
-    TrainingsplanViewModel trainingsplanViewModel;
 
-    public FirebaseConnection(TrainingsplanViewModel viewModel)
-    {
-        trainingsplanViewModel = viewModel;
-    }
 
     /*
     Return den Session-Key, der von der DB unique erstellt wurde.
@@ -39,6 +37,20 @@ public class FirebaseConnection {
         newReference.setValue(uebungen);
         return newReference.getKey();
     }
+
+    public void deleteSession(String sessionId)
+    {
+        reference.child(sessionId).removeValue();
+    }
+
+    public List<TrainingsplanUebungCrossRef> getSessionData(String sessionId)
+    {
+
+        return null;
+    }
+
+
+
 
 
 }

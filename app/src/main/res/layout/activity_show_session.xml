@@ -33,16 +33,25 @@
         android:scrollbars="vertical"
         tools:listitem="@layout/trainingsplan_uebungen_item" />
 
-    <ImageView
-        android:id="@+id/addUebung"
-        android:layout_width="match_parent"
-        android:layout_height="65dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
+    <Button
+        android:id="@+id/beendenButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="170dp"
-        android:layout_marginEnd="170dp"
-        android:layout_marginBottom="6dp"
-        app:srcCompat="@drawable/add_circle" />
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="15dp"
+        android:text="Beenden" />
+
+    <Button
+        android:id="@+id/CopySessionIdButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="15dp"
+        android:layout_alignParentRight="true"
+        android:text="Session-ID" />
+
 
 </RelativeLayout>

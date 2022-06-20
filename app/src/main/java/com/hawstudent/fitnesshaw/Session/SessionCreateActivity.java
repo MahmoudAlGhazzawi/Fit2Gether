@@ -3,6 +3,7 @@ package com.hawstudent.fitnesshaw.Session;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -12,9 +13,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.firebase.database.DatabaseReference;
 import com.hawstudent.fitnesshaw.R;
-import com.hawstudent.fitnesshaw.Trainingsplaene.AddTrainingsplanActivity;
 import com.hawstudent.fitnesshaw.Trainingsplaene.TrainingsplanAdapter;
 
 import java.util.List;
@@ -63,7 +62,7 @@ public class SessionCreateActivity extends AppCompatActivity implements Training
 
     @Override
     public void onTrainingsplanClick(Trainingsplan trainingsplan) {
-        FirebaseConnection firebaseConnection = new FirebaseConnection(trainingsplanViewModel);
+        FirebaseConnection firebaseConnection = new FirebaseConnection();
         trainingsplanViewModel.getAllUebungenByTrainingsplan(trainingsplan).observe(this, new Observer<List<TrainingsplanUebungCrossRef>>() {
             @Override
             public void onChanged(List<TrainingsplanUebungCrossRef> uebungen) {
@@ -73,9 +72,15 @@ public class SessionCreateActivity extends AppCompatActivity implements Training
                 ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
                 ClipData clip = ClipData.newPlainText("SessionId", sessionId);
                 clipboard.setPrimaryClip(clip);
+
+                Intent intent = new Intent(SessionCreateActivity.this, SessionActivity_ShowCreated.class);
+                intent.putExtra("EXTRA_TRAININGSPLAN", trainingsplan);
+                intent.putExtra("EXTRA_SESSIONID", sessionId);
+                startActivity(intent);
+
+                Toast.makeText(SessionCreateActivity.this, "Session erstellt und ID in die Zwischenablage kopiert!", Toast.LENGTH_LONG).show();
             }
         });
-
-    Toast.makeText(SessionCreateActivity.this, "Session erstellt und ID in Zwischenablage!", Toast.LENGTH_LONG).show();
+        finish();
     }
 }

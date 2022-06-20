@@ -6,25 +6,25 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/btn_join"
+        android:id="@+id/btn_create"
         android:layout_width="167dp"
         android:layout_height="60dp"
-        android:layout_marginBottom="288dp"
-        android:text="JOIN"
+        android:layout_marginBottom="216dp"
+        android:text="CREATE"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/btn_create"
+        android:id="@+id/btn_join"
         android:layout_width="172dp"
         android:layout_height="61dp"
-        android:layout_marginBottom="92dp"
-        android:text="CREATE"
-        app:layout_constraintBottom_toTopOf="@+id/btn_join"
+        android:layout_marginBottom="72dp"
+        android:text="JOIN"
+        app:layout_constraintBottom_toTopOf="@+id/btn_create"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -41,5 +41,18 @@
         app:layout_constraintHorizontal_bias="0.321"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.241" />
+        app:layout_constraintVertical_bias="0.122" />
+
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/joinSessionInput"
+        android:layout_width="225dp"
+        android:layout_height="39dp"
+        android:layout_marginBottom="20dp"
+        android:hint="hint"
+        app:layout_constraintBottom_toTopOf="@+id/btn_join"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

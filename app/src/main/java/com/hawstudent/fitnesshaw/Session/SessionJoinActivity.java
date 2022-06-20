@@ -23,7 +23,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-public class SessionJoinActivity extends AppCompatActivity {
+import java.util.Observable;
+import java.util.Observer;
+
+public class SessionJoinActivity extends AppCompatActivity{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,8 +54,6 @@ public class SessionJoinActivity extends AppCompatActivity {
                                       int before, int count)
             {
 
-                //DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("workout").child("123456789");
-                //DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
                 DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("workout").child(String.valueOf(s));
                 reference.addValueEventListener(new ValueEventListener() {
                     @Override
@@ -91,5 +92,7 @@ public class SessionJoinActivity extends AppCompatActivity {
         });
 
     }
+
+
 }
 
