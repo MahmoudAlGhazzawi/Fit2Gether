@@ -47,6 +47,10 @@ public class TrainingsplanViewModel extends AndroidViewModel {
         return repository.getCrossRefByTrainingsplan(trainingsplan.getTrainingsplanId());
     }
 
+    public LiveData<List<TrainingsplanUebungCrossRef>> getAllCrossRefs(){
+        return repository.getAllCrossRefs();
+    }
+
     public LiveData<List<Trainingsplan>> getTrainingsplanByName(String name)
     {
         return repository.getByName(name);

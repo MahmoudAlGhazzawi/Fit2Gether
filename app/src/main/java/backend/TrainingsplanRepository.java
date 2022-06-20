@@ -27,6 +27,10 @@ public class TrainingsplanRepository {
         new DeleteTrainingsplanAT(trainingsplanDao).execute(trainingsplan);
     }
 
+    public LiveData<List<TrainingsplanUebungCrossRef>> getAllCrossRefs(){
+        return trainingsplanDao.getAllCrossRefs();
+    }
+
     public void deleteAllTrainingsplaene()
     {
         new DeleteAllTrainingsplaeneAT(trainingsplanDao).execute();

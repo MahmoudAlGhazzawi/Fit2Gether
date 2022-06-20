@@ -42,6 +42,9 @@ public interface TrainingsplanDao {
     @Query("SELECT * FROM Trainingsplan")
     public LiveData<List<Trainingsplan>> getAllTrainingsplaene();
 
+    @Query("SELECT * FROM TrainingsplanUebungCrossRef")
+    public LiveData<List<TrainingsplanUebungCrossRef>> getAllCrossRefs();
+
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     public void insertCrossRef(List<TrainingsplanUebungCrossRef> crossRefs);
 

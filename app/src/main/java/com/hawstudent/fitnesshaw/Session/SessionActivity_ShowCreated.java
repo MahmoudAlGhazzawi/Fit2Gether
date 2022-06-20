@@ -3,12 +3,14 @@ package com.hawstudent.fitnesshaw.Session;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -16,6 +18,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.hawstudent.fitnesshaw.R;
+import com.hawstudent.fitnesshaw.Uebungen.ActivityUebungenInTrainingsplan;
 import com.hawstudent.fitnesshaw.Uebungen.CrossRefAdapter;
 
 import java.util.List;
@@ -34,6 +37,8 @@ public class SessionActivity_ShowCreated extends AppCompatActivity {
     private Button beendenButton;
     private Button sessionIdButton;
 
+    private String sessionId;
+
 
 
 
@@ -43,7 +48,7 @@ public class SessionActivity_ShowCreated extends AppCompatActivity {
         setContentView(R.layout.activity_show_session);
 
         Trainingsplan trainingsplan = (Trainingsplan) getIntent().getSerializableExtra("EXTRA_TRAININGSPLAN");
-        String sessionId = (String) getIntent().getSerializableExtra("EXTRA_SESSIONID");
+       sessionId = (String) getIntent().getSerializableExtra("EXTRA_SESSIONID");
 
         workoutName = findViewById(R.id.textMyTrainingsplanUeberschrift);
         beendenButton = findViewById(R.id.beendenButton);
@@ -71,10 +76,24 @@ public class SessionActivity_ShowCreated extends AppCompatActivity {
         beendenButton.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FirebaseConnection firebaseConnection = new FirebaseConnection();
-                firebaseConnection.deleteSession(sessionId);
-                Toast.makeText(SessionActivity_ShowCreated.this, "Session beendet", Toast.LENGTH_LONG).show();
-                finish();
+                AlertDialog.Builder builder = new AlertDialog.Builder(SessionActivity_ShowCreated.this);
+                builder.setTitle("Willst du die Session beenden?");
+                builder.setNegativeButton("Nein", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.cancel();
+                    }
+                });
+                builder.setPositiveButton("Ja", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        FirebaseConnection firebaseConnection = new FirebaseConnection();
+                        firebaseConnection.deleteSession(sessionId);
+                        Toast.makeText(SessionActivity_ShowCreated.this, "Session beendet", Toast.LENGTH_LONG).show();
+                        finish();
+                    }
+                });
+                builder.show();
             }
         });
 
@@ -87,7 +106,27 @@ public class SessionActivity_ShowCreated extends AppCompatActivity {
                 Toast.makeText(SessionActivity_ShowCreated.this, "SessionID in die Zwischenablage kopiert!", Toast.LENGTH_LONG).show();
             }
         });
+    }
 
-
+    @Override
+    public void onBackPressed() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(SessionActivity_ShowCreated.this);
+        builder.setTitle("Willst du die Session beenden?");
+        builder.setNegativeButton("Nein", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.cancel();
+            }
+        });
+        builder.setPositiveButton("Ja", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                FirebaseConnection firebaseConnection = new FirebaseConnection();
+                firebaseConnection.deleteSession(sessionId);
+                Toast.makeText(SessionActivity_ShowCreated.this, "Session beendet", Toast.LENGTH_LONG).show();
+                finish();
+            }
+        });
+        builder.show();
     }
 }

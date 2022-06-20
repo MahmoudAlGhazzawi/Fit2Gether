@@ -47,7 +47,7 @@ public class SessionWhatActivity extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         String sessionId = sessionInputText.getText().toString();
-                        if(snapshot.hasChild(sessionId)){
+                        if(snapshot.hasChild(sessionId) && !(sessionId.isEmpty())){
                             Intent intent = new Intent(SessionWhatActivity.this, SessionActivity_ShowJoined.class);
                             intent.putExtra("EXTRA_SESSIONID", sessionId);
                             startActivity(intent);
