@@ -18,6 +18,12 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.hawstudent.fitnesshaw.Nutzerdatenbank.User;
 import com.hawstudent.fitnesshaw.R;
 
 import java.util.List;
@@ -30,6 +36,8 @@ public class ActivityUebungenInTrainingsplan extends AppCompatActivity {
 
     private static final String TAG = "UebungenInTrainingsplan";
     private RecyclerView recyclerView;
+    FirebaseFirestore fStore;
+    private FirebaseAuth mAuth;
 
     private TextView trainingsplanName;
 
@@ -48,6 +56,8 @@ public class ActivityUebungenInTrainingsplan extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_uebungen_in_trainingsplan);
+        mAuth = FirebaseAuth.getInstance();
+        fStore = FirebaseFirestore.getInstance();
 
         Trainingsplan trainingsplan =(Trainingsplan) getIntent().getSerializableExtra("EXTRA_TRAININGSPLAN");
         Log.d(TAG, "onCreate: " + trainingsplan.getTrainingsplanId());
@@ -102,6 +112,7 @@ public class ActivityUebungenInTrainingsplan extends AppCompatActivity {
             @Override
             public void onChanged(List<TrainingsplanUebungCrossRef> uebungen) {
                 adapter.setUebungen(uebungen);
+                User.updateUserData(uebungen);
             }
         });
 
@@ -143,5 +154,7 @@ public class ActivityUebungenInTrainingsplan extends AppCompatActivity {
                 builder.show();
             }
         }).attachToRecyclerView(recyclerView);
+
+
     }
 }

@@ -37,10 +37,10 @@
             android:name=".OnBoardingActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".Nutzerdatenbank.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".SignUpActivity"
+            android:name=".Nutzerdatenbank.SignUpActivity"
             android:exported="false" />
         <activity
             android:name=".Session.SessionActivity_ShowCreated"
