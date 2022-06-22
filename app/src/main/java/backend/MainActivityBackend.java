@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
+import com.hawstudent.fitnesshaw.Nutzerdatenbank.User;
 import com.hawstudent.fitnesshaw.R;
 import com.hawstudent.fitnesshaw.Trainingsplaene.TrainingsplanAdapter;
 
@@ -66,7 +67,6 @@ public class MainActivityBackend extends AppCompatActivity implements Trainingsp
 
         TrainingsplanAdapter adapter = new TrainingsplanAdapter(this);
         recyclerView.setAdapter(adapter);
-
         trainingsplanViewModel.getAllTrainingsplaene().observe(this, new Observer<List<Trainingsplan>>() {
             @Override
             public void onChanged(List<Trainingsplan> trainingsplans) {

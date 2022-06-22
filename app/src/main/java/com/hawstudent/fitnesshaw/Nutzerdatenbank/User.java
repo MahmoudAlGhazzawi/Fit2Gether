@@ -62,21 +62,55 @@ public class User {
         });
     }
 
-    public static void updateUserData(List<TrainingsplanUebungCrossRef> uebungen) {
-        FirebaseNutzerDbAnbindung fb = new FirebaseNutzerDbAnbindung();
-        String userID = fb.gibfAuth().getCurrentUser().getUid();
-        // Update an existing document
-        DocumentReference docRef = fb.gibfStore().collection("users").document(userID);
-        docRef.update("uebungen", uebungen);
+    public static void updateUserData(List<TrainingsplanUebungCrossRef> uebungen, String traingsplanName) {
+        updateTrainingsplaene(uebungen,traingsplanName);
+        updateCrossref(uebungen);
+        updateUebungen(uebungen);
 
     }
 
+
+    private static void updateTrainingsplaene(List<TrainingsplanUebungCrossRef> uebungen, String trainingsplanName){
+
+        String userID = gibFB().gibfAuth().getCurrentUser().getUid();
+        Map<String, Object> triningsplan = new HashMap<>();
+        triningsplan.put("TrainingsplanId", uebungen.get(0).getTrainingsplanId()+"");
+        triningsplan.put("TrainingsplanName", trainingsplanName);
+        DocumentReference messageRef = gibFB().gibfStore()
+                .collection("users").document(userID)
+                .collection("trainingsplaene").document(uebungen.get(0).getTrainingsplanId() + "");
+        messageRef.set(triningsplan);
+    }
+    private static void updateCrossref(List<TrainingsplanUebungCrossRef> uebungen){
+
+        String userID = gibFB().gibfAuth().getCurrentUser().getUid();
+        Map<String, Object> crossRefMap = new HashMap<>();
+        crossRefMap.put("crossrefsUebungen", uebungen);
+
+        DocumentReference messageRef = gibFB().gibfStore()
+                .collection("users").document(userID)
+                .collection("crossRefs").document(uebungen.get(0).getTrainingsplanId() + "");
+
+        messageRef.set(crossRefMap);
+    }
+    private static void updateUebungen(List<TrainingsplanUebungCrossRef> uebungen){
+        String userID = gibFB().gibfAuth().getCurrentUser().getUid();
+        Map<String, Object> uebungenMap = new HashMap<>();
+        uebungenMap.put("UebungName", uebungen.get(0).getUebungName());
+        uebungenMap.put("getUebungId", uebungen.get(0).getUebungId());
+
+        DocumentReference messageRef = gibFB().gibfStore()
+                .collection("users").document(userID)
+                .collection("uebungen").document(uebungen.get(0).getUebungId() + "");
+
+        messageRef.set(uebungenMap);
+    }
+
     public static boolean documentExists() {
-        FirebaseNutzerDbAnbindung fb = new FirebaseNutzerDbAnbindung();
-        String userID = fb.gibfAuth().getCurrentUser().getUid();
+        String userID = gibFB().gibfAuth().getCurrentUser().getUid();
         final Boolean[] documentExissts = new Boolean[1];
         // Update an existing document
-        DocumentReference docRef = fb.gibfStore().collection("users").document(userID);
+        DocumentReference docRef = gibFB().gibfStore().collection("users").document(userID);
 
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
@@ -117,6 +151,9 @@ public class User {
                 }
             }
         });
+    }
+    private static FirebaseNutzerDbAnbindung gibFB() {
+        return new FirebaseNutzerDbAnbindung();
     }
 }
 
