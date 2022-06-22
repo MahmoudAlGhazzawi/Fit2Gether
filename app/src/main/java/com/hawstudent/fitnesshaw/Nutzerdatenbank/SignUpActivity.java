@@ -135,8 +135,9 @@ public class SignUpActivity extends AppCompatActivity {
         fAuth.createUserWithEmailAndPassword(email,passWord).addOnCompleteListener( task -> {
 
             if (task.isSuccessful()) {
-                String [] name = fAuth.getCurrentUser().getDisplayName().split(" ");
-                setData(Arrays.asList(name[0], name[1],fAuth.getCurrentUser().getEmail()));
+                setData(Arrays.asList(firstname, lastname,email));
+                Intent intent = new Intent(SignUpActivity.this, DashboardActivity.class);
+                startActivity(intent);
             } else {
                 Toast.makeText(SignUpActivity.this, "Error hat net geklappt", Toast.LENGTH_LONG).show();
             }

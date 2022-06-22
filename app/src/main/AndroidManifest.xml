@@ -40,6 +40,9 @@
             android:name=".Nutzerdatenbank.LoginActivity"
             android:exported="false" />
         <activity
+            android:name=".Nutzerdatenbank.GoogleLoginActivity"
+            android:exported="false" />
+        <activity
             android:name=".Nutzerdatenbank.SignUpActivity"
             android:exported="false" />
         <activity

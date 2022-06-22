@@ -15,8 +15,11 @@ import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.firestore.DocumentReference;
 import com.hawstudent.fitnesshaw.DashboardActivity;
 import com.hawstudent.fitnesshaw.R;
@@ -66,7 +69,7 @@ public class GoogleLoginActivity extends LoginActivity {
                 new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-                        setData(null);
+                      
                     }
                 });
     }
@@ -86,11 +89,7 @@ public class GoogleLoginActivity extends LoginActivity {
             try {
                 // Google Sign In was successful, authenticate with Firebase
                 GoogleSignInAccount account = task.getResult(ApiException.class);
-                Log.d(TAG, "firebaseAuthWithGoogle:" + account.getId());
-                String [] name = account.getDisplayName().split(" ");
-                if (! User.documentExists() ) {
-                    setData(Arrays.asList(name[0], name[1], account.getEmail()));
-                }
+                firebaseAuthWithGoogle(account.getIdToken() ,  account);
             } catch (ApiException e) {
                 // Google Sign In failed, update UI appropriately
                 Log.w(TAG, "Google sign in failed", e);
@@ -98,6 +97,30 @@ public class GoogleLoginActivity extends LoginActivity {
         }
     }
 
+    private void firebaseAuthWithGoogle(String idToken, GoogleSignInAccount account) {
+        AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);
+        mAuth.signInWithCredential(credential)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            String [] name = account.getDisplayName().split(" ");
+                            if (! User.documentExists() ) {
+
+                                setData(Arrays.asList(name[0], name[1], account.getEmail()));
+                                Intent intent = new Intent(GoogleLoginActivity.this, DashboardActivity.class);
+                                startActivity(intent);
+                            }
+
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Log.w(TAG, "signInWithCredential:failure", task.getException());
+                            Intent intent = new Intent(GoogleLoginActivity.this, LoginActivity.class);
+                            startActivity(intent);
+                        }
+                    }
+                });
+    }
 
 
     private void setData(List<String> userDaten) {

@@ -127,6 +127,9 @@ public class User {
                 }
             }
         });
+        if (documentExissts[0] == null) {
+            return false;
+        }
         return documentExissts[0];
     }
 
