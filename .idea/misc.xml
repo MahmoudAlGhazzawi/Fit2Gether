@@ -3,16 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/HP/AndroidStudioProjects/sea2_myfitnessapp2/app/src/main/res/layout/activity_sign_up.xml" value="0.25226449275362317" />
         <entry key="..\:/Users/leonk/AndroidStudioProjects/sea2_myfitnessapp/app/src/main/res/layout/activity_add_trainingsplan.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/leonk/AndroidStudioProjects/sea2_myfitnessapp/app/src/main/res/layout/activity_add_uebung.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/leonk/AndroidStudioProjects/sea2_myfitnessapp/app/src/main/res/layout/activity_add_uebung_zahlen.xml" value="0.35280797101449274" />
         <entry key="..\:/Users/leonk/AndroidStudioProjects/sea2_myfitnessapp/app/src/main/res/layout/activity_list_workouts.xml" value="0.34646739130434784" />
+        <entry key="..\:/Users/leonk/AndroidStudioProjects/sea2_myfitnessapp/app/src/main/res/layout/activity_show_session.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/leonk/AndroidStudioProjects/sea2_myfitnessapp/app/src/main/res/layout/activity_uebungen_in_trainingsplan.xml" value="0.34646739130434784" />
         <entry key="..\:/Users/leonk/AndroidStudioProjects/sea2_myfitnessapp/app/src/main/res/layout/leon_activity_main.xml" value="0.20208333333333334" />
         <entry key="..\:/Users/leonk/AndroidStudioProjects/sea2_myfitnessapp/app/src/main/res/layout/leon_trainingsplan_item.xml" value="0.34646739130434784" />
         <entry key="..\:/Users/leonk/AndroidStudioProjects/sea2_myfitnessapp/app/src/main/res/layout/marvin_session_create.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/leonk/AndroidStudioProjects/sea2_myfitnessapp/app/src/main/res/layout/marvin_session_list.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/leonk/AndroidStudioProjects/sea2_myfitnessapp/app/src/main/res/layout/marvin_session_what.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/leonk/AndroidStudioProjects/sea2_myfitnessapp/app/src/main/res/layout/trainingsplan_uebungen_item.xml" value="0.3188405797101449" />
+        <entry key="..\:/Users/leonk/AndroidStudioProjects/sea2_myfitnessapp/app/src/main/res/layout/uebung_item.xml" value="0.3188405797101449" />
         <entry key="..\:/Users/leonk/OneDrive/Desktop/4.Semester/SEA2/sea2_myfitnessapp/app/src/main/res/layout/activity_list_workouts.xml" value="0.3482789855072464" />
         <entry key="..\:/Users/leonk/OneDrive/Desktop/4.Semester/SEA2/sea2_myfitnessapp/app/src/main/res/layout/activity_uebungen_in_trainingsplan.xml" value="0.3482789855072464" />
         <entry key="..\:/Users/leonk/OneDrive/Desktop/4.Semester/SEA2/sea2_myfitnessapp/app/src/main/res/layout/dashboard_item_2.xml" value="0.3482789855072464" />
@@ -30,6 +33,8 @@
         <entry key="..\:/Users/mahmo/AndroidStudioProjects/FitnessHAW/app/src/main/res/drawable/onboarding_indicator_inactive.xml" value="0.25" />
         <entry key="..\:/Users/mahmo/AndroidStudioProjects/FitnessHAW/app/src/main/res/drawable/round_border.xml" value="0.481" />
         <entry key="..\:/Users/mahmo/AndroidStudioProjects/FitnessHAW/app/src/main/res/drawable/round_bt.xml" value="0.3495" />
+        <entry key="..\:/Users/mahmo/AndroidStudioProjects/FitnessHAW/app/src/main/res/layout/activity_add_trainingsplan.xml" value="0.4203703703703704" />
+        <entry key="..\:/Users/mahmo/AndroidStudioProjects/FitnessHAW/app/src/main/res/layout/activity_add_uebung_zahlen.xml" value="0.5415384615384615" />
         <entry key="..\:/Users/mahmo/AndroidStudioProjects/FitnessHAW/app/src/main/res/layout/activity_add_workoutplan.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/mahmo/AndroidStudioProjects/FitnessHAW/app/src/main/res/layout/activity_dashboard.xml" value="0.3220910623946037" />
         <entry key="..\:/Users/mahmo/AndroidStudioProjects/FitnessHAW/app/src/main/res/layout/activity_list_workouts.xml" value="0.33" />
@@ -37,6 +42,7 @@
         <entry key="..\:/Users/mahmo/AndroidStudioProjects/FitnessHAW/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/mahmo/AndroidStudioProjects/FitnessHAW/app/src/main/res/layout/activity_navigation_bar.xml" value="0.33" />
         <entry key="..\:/Users/mahmo/AndroidStudioProjects/FitnessHAW/app/src/main/res/layout/activity_on_boarding.xml" value="0.33" />
+        <entry key="..\:/Users/mahmo/AndroidStudioProjects/FitnessHAW/app/src/main/res/layout/activity_show_session.xml" value="0.5" />
         <entry key="..\:/Users/mahmo/AndroidStudioProjects/FitnessHAW/app/src/main/res/layout/activity_sign_up.xml" value="0.4895833333333333" />
         <entry key="..\:/Users/mahmo/AndroidStudioProjects/FitnessHAW/app/src/main/res/layout/activity_splash.xml" value="0.45108695652173914" />
         <entry key="..\:/Users/mahmo/AndroidStudioProjects/FitnessHAW/app/src/main/res/layout/activity_uebungen_in_trainingsplan.xml" value="0.353125" />
@@ -48,12 +54,16 @@
         <entry key="..\:/Users/mahmo/AndroidStudioProjects/FitnessHAW/app/src/main/res/layout/item_container_onboarding.xml" value="0.3625" />
         <entry key="..\:/Users/mahmo/AndroidStudioProjects/FitnessHAW/app/src/main/res/layout/leon_activity_main.xml" value="0.18" />
         <entry key="..\:/Users/mahmo/AndroidStudioProjects/FitnessHAW/app/src/main/res/layout/leon_trainingsplan_item.xml" value="0.5" />
+        <entry key="..\:/Users/mahmo/AndroidStudioProjects/FitnessHAW/app/src/main/res/layout/marvin_session_create.xml" value="0.55" />
+        <entry key="..\:/Users/mahmo/AndroidStudioProjects/FitnessHAW/app/src/main/res/layout/marvin_session_list.xml" value="0.5" />
+        <entry key="..\:/Users/mahmo/AndroidStudioProjects/FitnessHAW/app/src/main/res/layout/marvin_session_what.xml" value="0.33" />
+        <entry key="..\:/Users/mahmo/AndroidStudioProjects/FitnessHAW/app/src/main/res/layout/trainingsplan_uebungen_item.xml" value="0.5415384615384615" />
         <entry key="..\:/Users/mahmo/AndroidStudioProjects/FitnessHAW/app/src/main/res/menu/bottom_nav_menu.xml" value="0.55" />
         <entry key="..\:/Users/marvi/AndroidStudioProjects/sea2_myfitnessapp/app/src/main/res/layout/marvin_session_what.xml" value="0.1" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
