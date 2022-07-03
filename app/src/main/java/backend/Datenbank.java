@@ -38,14 +38,14 @@ public abstract class Datenbank extends RoomDatabase {
                 @Override
                 public void run() {
                     if(uebungDao().count() == 0) {
-                        Uebung bankdrücken = new Uebung("Bankdrücken");
+                        Uebung bankdrücken = new Uebung("Bankdruecken");
                         Uebung pullups = new Uebung("Pullups");
                         Uebung pushups = new Uebung("Pushups");
-                        Uebung squats = new Uebung("Squats");
-                        Uebung calfraises = new Uebung("Calfraises");
-                        Uebung cableflies = new Uebung("Cableflies");
+                        Uebung squats = new Uebung("Squads");
+                        Uebung calfraises = new Uebung("Calf Raises");
+                        Uebung cableflies = new Uebung("Cable Flies");
+                        Uebung legPress = new Uebung("LegPress");
                         Uebung dips = new Uebung("Dips");
-                        Uebung deadlift = new Uebung("Deadlift");
                         Uebung rudern = new Uebung("Rudern");
 
                         uebungDao().insertUebung(bankdrücken);
@@ -53,10 +53,10 @@ public abstract class Datenbank extends RoomDatabase {
                         uebungDao().insertUebung(pushups);
                         uebungDao().insertUebung(squats);
                         uebungDao().insertUebung(calfraises);
+                        uebungDao().insertUebung(legPress);
 
                         uebungDao().insertUebung(cableflies);
                         uebungDao().insertUebung(dips);
-                        uebungDao().insertUebung(deadlift);
                         uebungDao().insertUebung(rudern);
                     }
                 }
