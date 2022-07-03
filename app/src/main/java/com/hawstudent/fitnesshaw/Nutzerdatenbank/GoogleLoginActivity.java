@@ -45,20 +45,20 @@ public class GoogleLoginActivity extends LoginActivity {
         setContentView(R.layout.activity_login);
 
         mAuth = FirebaseAuth.getInstance();
-        configureLogin();
+//        configureLogin();
     }
 
-    private void configureLogin(){
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.default_web_client_id))
-                .requestEmail()
-                .build();
-
-        mAuth = FirebaseAuth.getInstance();
-        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
-        googleSignOut();
-        googleSignIn();
-    }
+//    private void configureLogin(){
+//        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+//                .requestIdToken(getString(R.string.default_web_client_id))
+//                .requestEmail()
+//                .build();
+//
+//        mAuth = FirebaseAuth.getInstance();
+//        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+//        googleSignOut();
+//        googleSignIn();
+//    }
 
     private void googleSignOut() {
         // Firebase sign out

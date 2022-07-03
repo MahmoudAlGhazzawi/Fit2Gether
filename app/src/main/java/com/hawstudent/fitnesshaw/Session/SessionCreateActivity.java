@@ -33,7 +33,7 @@ public class SessionCreateActivity extends AppCompatActivity implements Training
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list_workouts);
+        setContentView(R.layout.activity_create_session);
 
         trainingsplanViewModel = new ViewModelProvider(this).get(TrainingsplanViewModel.class);
 

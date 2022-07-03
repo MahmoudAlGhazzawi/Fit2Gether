@@ -113,7 +113,8 @@ public class ActivityUebungenInTrainingsplan extends AppCompatActivity {
             public void onChanged(List<TrainingsplanUebungCrossRef> uebungen) {
                 adapter.setUebungen(uebungen);
 
-                User.updateUserData(uebungen,trainingsplan.getTpName());
+//                User.updateUserData(uebungen,trainingsplan.getTpName());
+                User.updateCrossref(uebungen);
             }
         });
 

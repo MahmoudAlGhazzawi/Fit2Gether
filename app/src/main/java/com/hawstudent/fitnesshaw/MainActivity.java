@@ -8,6 +8,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+import com.hawstudent.fitnesshaw.Nutzerdatenbank.User;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;

@@ -29,6 +29,10 @@ public class TrainingsplanViewModel extends AndroidViewModel {
         uebungRepository.insertUebung(uebung);
     }
 
+    public void insertCrossRef(TrainingsplanUebungCrossRef crossRefs){
+        repository.insertCrossRef(crossRefs);
+    }
+
     public void deleteUebung(Uebung uebung) {
         uebungRepository.deleteUebung(uebung);
     }
@@ -97,9 +101,8 @@ public class TrainingsplanViewModel extends AndroidViewModel {
         List<TrainingsplanUebungCrossRef> crossRefList = new ArrayList<>();
         for(int i = 0; i< uebungen.size();i++)
         {
-            crossRefList.add(new TrainingsplanUebungCrossRef(trainingsplan.getTrainingsplanId(), uebungen.get(i).getUebungId(), uebungen.get(i).getUebungName()));
+            repository.insertCrossRef(new TrainingsplanUebungCrossRef(trainingsplan.getTrainingsplanId(), uebungen.get(i).getUebungId(), uebungen.get(i).getUebungName()));
         }
-        repository.insertCrossRef(crossRefList);
     }
 
     public void setGewichtWdhSaetze(Trainingsplan trainingsplan, Uebung uebung, int gewicht, int wdh, int saetze)
@@ -113,6 +116,11 @@ public class TrainingsplanViewModel extends AndroidViewModel {
 
     public LiveData<List<Trainingsplan>> getAllTrainingsplaene(){
         return allTrainingsplaene;
+    }
+
+    public void deleteAllCrossRefs()
+    {
+        repository.deleteAllCrossRefs();
     }
 
 

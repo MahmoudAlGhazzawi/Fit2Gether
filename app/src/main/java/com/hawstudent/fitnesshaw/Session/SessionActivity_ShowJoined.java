@@ -28,7 +28,6 @@ public class SessionActivity_ShowJoined extends AppCompatActivity {
     private RecyclerView recyclerView;
 
     private TextView workoutName;
-    private Button beendenButton;
     private Button sessionIdButton;
     DatabaseReference reference;
     List<TrainingsplanUebungCrossRef> uebungen = new ArrayList<>();
@@ -36,7 +35,7 @@ public class SessionActivity_ShowJoined extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_show_session);
+        setContentView(R.layout.activity_show_session_joined);
 
         recyclerView = findViewById(R.id.recyclerviewUebungen);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -74,7 +73,6 @@ public class SessionActivity_ShowJoined extends AppCompatActivity {
         });
 
         workoutName = findViewById(R.id.textMyTrainingsplanUeberschrift);
-        beendenButton = findViewById(R.id.beendenButton);
         sessionIdButton = findViewById(R.id.CopySessionIdButton);
 
 

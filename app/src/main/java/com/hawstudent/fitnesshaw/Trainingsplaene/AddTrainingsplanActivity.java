@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.hawstudent.fitnesshaw.R;
 
+import backend.Trainingsplan;
 import backend.TrainingsplanViewModel;
 
 public class AddTrainingsplanActivity extends AppCompatActivity {
@@ -40,7 +41,10 @@ public class AddTrainingsplanActivity extends AppCompatActivity {
                     Toast.makeText(AddTrainingsplanActivity.this, "Please type a name for your workout!", Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    trainingsplanViewModel.insertTrainingsplan(workoutName.getText().toString());
+//                    trainingsplanViewModel.insertTrainingsplan(workoutName.getText().toString());
+                    Trainingsplan trainingsplan = new Trainingsplan(workoutName.getText().toString());
+                    trainingsplanViewModel.insertTrainingsplan(trainingsplan);
+
 
                     Intent intent = new Intent(AddTrainingsplanActivity.this, ListWorkoutsActivity.class);
                     startActivity(intent);

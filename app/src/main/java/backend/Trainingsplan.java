@@ -17,6 +17,10 @@ public class Trainingsplan implements Serializable {
 
     private String tpName;
 
+    public Trainingsplan(){
+
+    }
+
     public Trainingsplan(String tpName) {
         this.tpName = tpName;
     }

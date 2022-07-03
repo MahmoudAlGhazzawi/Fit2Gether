@@ -14,6 +14,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.hawstudent.fitnesshaw.Nutzerdatenbank.User;
 import com.hawstudent.fitnesshaw.R;
 import com.hawstudent.fitnesshaw.Trainingsplaene.AddTrainingsplanActivity;
 import com.hawstudent.fitnesshaw.Trainingsplaene.ListWorkoutsActivity;

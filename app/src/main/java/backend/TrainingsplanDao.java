@@ -45,8 +45,11 @@ public interface TrainingsplanDao {
     @Query("SELECT * FROM TrainingsplanUebungCrossRef")
     public LiveData<List<TrainingsplanUebungCrossRef>> getAllCrossRefs();
 
+    @Query("DELETE FROM TrainingsplanUebungCrossRef")
+    public void deleteAllCrossRefs();
+
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    public void insertCrossRef(List<TrainingsplanUebungCrossRef> crossRefs);
+    public void insertCrossRef(TrainingsplanUebungCrossRef crossRef);
 
     @Delete
     public void deleteCrossRef(TrainingsplanUebungCrossRef crossRef);

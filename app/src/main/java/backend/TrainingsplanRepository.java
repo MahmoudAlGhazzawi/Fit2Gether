@@ -31,6 +31,10 @@ public class TrainingsplanRepository {
         return trainingsplanDao.getAllCrossRefs();
     }
 
+    public void deleteAllCrossRefs()
+    {
+        new DeleteAllCrossRefsAT(trainingsplanDao).execute();
+    }
     public void deleteAllTrainingsplaene()
     {
         new DeleteAllTrainingsplaeneAT(trainingsplanDao).execute();
@@ -71,7 +75,7 @@ public class TrainingsplanRepository {
         new DeleteCrossRefByTrainingsplanAT(trainingsplanDao).execute(trainingsplanId);
     }
 
-    public void insertCrossRef(List<TrainingsplanUebungCrossRef> crossRefs)
+    public void insertCrossRef(TrainingsplanUebungCrossRef crossRefs)
     {
         new InsertCrossRefAT(trainingsplanDao).execute(crossRefs);
     }
@@ -91,7 +95,7 @@ public class TrainingsplanRepository {
         return allTrainingsplaene;
     }
 
-    private static class InsertCrossRefAT extends AsyncTask<List<TrainingsplanUebungCrossRef>,Void,Void>{
+    private static class InsertCrossRefAT extends AsyncTask<TrainingsplanUebungCrossRef,Void,Void>{
         private TrainingsplanDao trainingsplanDao;
 
         private InsertCrossRefAT(TrainingsplanDao trainingsplanDao)
@@ -101,7 +105,7 @@ public class TrainingsplanRepository {
         }
 
         @Override
-        protected Void doInBackground(List<TrainingsplanUebungCrossRef>...crossRefs){
+        protected Void doInBackground(TrainingsplanUebungCrossRef...crossRefs){
             trainingsplanDao.insertCrossRef(crossRefs[0]);
             return null;
         }
@@ -149,6 +153,19 @@ public class TrainingsplanRepository {
         }
     }
 
+    private static class DeleteAllCrossRefsAT extends AsyncTask<Void,Void,Void>{
+        private TrainingsplanDao trainingsplanDao;
+        private DeleteAllCrossRefsAT(TrainingsplanDao trainingsplanDao)
+        {
+            this.trainingsplanDao = trainingsplanDao;
+        }
+
+        @Override
+        protected Void doInBackground(Void...Void){
+            trainingsplanDao.deleteAllCrossRefs();
+            return null;
+        }
+    }
 
     private static class updateCrossRefAT extends AsyncTask<TrainingsplanUebungCrossRef,Void,Void>{
         private TrainingsplanDao trainingsplanDao;
@@ -174,8 +191,8 @@ public class TrainingsplanRepository {
         }
 
         @Override
-        protected Void doInBackground(TrainingsplanUebungCrossRef...crossRefs){
-            trainingsplanDao.deleteCrossRef(crossRefs[0]);
+        protected Void doInBackground(TrainingsplanUebungCrossRef...trainingsplanUebungCrossRefs){
+            trainingsplanDao.deleteCrossRef(trainingsplanUebungCrossRefs[0]);
             return null;
         }
     }

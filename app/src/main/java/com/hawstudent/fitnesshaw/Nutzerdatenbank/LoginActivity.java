@@ -2,6 +2,7 @@ package com.hawstudent.fitnesshaw.Nutzerdatenbank;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Build;
@@ -32,6 +33,9 @@ import com.hawstudent.fitnesshaw.R;
 import java.util.HashMap;
 import java.util.Map;
 
+import backend.TrainingsplanViewModel;
+import backend.Uebung;
+
 public class LoginActivity extends AppCompatActivity {
 
     TextView txtRegister;
@@ -41,10 +45,12 @@ public class LoginActivity extends AppCompatActivity {
     FirebaseFirestore fStore;
     private FirebaseAuth mAuth;
     private static final String TAG = "GoogleActivity";
+    TrainingsplanViewModel trainingsplanViewModel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        trainingsplanViewModel = new ViewModelProvider(this).get(TrainingsplanViewModel.class);
 
         mAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
@@ -78,7 +84,6 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 signIN();
-
             }
         });
     }
@@ -104,6 +109,8 @@ public class LoginActivity extends AppCompatActivity {
                             FirebaseUser user = mAuth.getCurrentUser();
                             Intent intent = new Intent(LoginActivity.this, DashboardActivity.class);
                             startActivity(intent);
+                            User.setTrainingsplanViewModel(trainingsplanViewModel);
+                            User.loadFromFirebase();
                         } else {
                             Toast.makeText(LoginActivity.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();

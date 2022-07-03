@@ -18,11 +18,14 @@ public class Uebung implements Serializable {
 
     private String uebungName;
 
+    public Uebung (){
+
+    };
     public Uebung(String uebungName) {
         this.uebungName = uebungName;
     }
 
-    public void setUebungName(String uebbungName) {
+    public void setUebungName(String uebungName) {
         this.uebungName = uebungName;
     }
 

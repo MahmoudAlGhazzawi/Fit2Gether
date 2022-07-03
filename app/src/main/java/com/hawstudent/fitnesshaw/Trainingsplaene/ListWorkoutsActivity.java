@@ -18,6 +18,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.hawstudent.fitnesshaw.Nutzerdatenbank.User;
 import com.hawstudent.fitnesshaw.Uebungen.ActivityUebungenInTrainingsplan;
 import com.hawstudent.fitnesshaw.R;
 import com.hawstudent.fitnesshaw.TrainingsItems;
@@ -70,6 +71,7 @@ public class ListWorkoutsActivity extends AppCompatActivity implements Trainings
             @Override
             public void onChanged(List<Trainingsplan> trainingsplans) {
                 adapter.setTrainingsplaene(trainingsplans);
+                User.updateTrainingsplaene(trainingsplans);
             }
         });
 

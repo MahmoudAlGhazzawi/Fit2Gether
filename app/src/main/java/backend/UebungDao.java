@@ -13,6 +13,9 @@ import java.util.List;
 @Dao
 public interface UebungDao {
 
+    @Query("SELECT count(*) FROM Uebung")
+    public int count();
+
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     public void insertUebung(Uebung uebung);
 
