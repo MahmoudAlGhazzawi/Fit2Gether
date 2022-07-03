@@ -3,25 +3,30 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/purple_white">
+
 
     <Button
         android:id="@+id/btn_create"
         android:layout_width="167dp"
         android:layout_height="60dp"
-        android:layout_marginBottom="216dp"
+        android:layout_marginBottom="128dp"
+        android:background="@drawable/round_bt"
         android:text="CREATE"
+        android:textColor="@color/colorTextWhite"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btn_join"
         android:layout_width="172dp"
         android:layout_height="61dp"
-        android:layout_marginBottom="72dp"
+        android:layout_marginBottom="60dp"
+        android:background="@drawable/round_bt"
         android:text="JOIN"
+        android:textColor="@color/colorTextWhite"
         app:layout_constraintBottom_toTopOf="@+id/btn_create"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -34,25 +39,40 @@
         android:layout_marginStart="176dp"
         android:layout_marginTop="67dp"
         android:layout_marginEnd="196dp"
-        android:text="WHAT"
+        android:text="Training Session"
         android:textSize="34sp"
         app:layout_constraintBottom_toTopOf="@+id/btn_create"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.321"
+        app:layout_constraintHorizontal_bias="0.451"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.122" />
-
+        app:layout_constraintVertical_bias="0.0" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/joinSessionInput"
-        android:layout_width="225dp"
-        android:layout_height="39dp"
-        android:layout_marginBottom="20dp"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="96dp"
+        android:background="@drawable/round_border"
+        android:drawableStart="@drawable/session_icon2"
+        android:drawablePadding="14dp"
         android:hint="SessionID"
+        android:minHeight="48dp"
+        android:padding="12dp"
         app:layout_constraintBottom_toTopOf="@+id/btn_join"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OR"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/btn_create"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_join" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
