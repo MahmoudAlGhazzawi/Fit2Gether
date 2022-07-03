@@ -151,19 +151,35 @@ public class User {
         messageRef.set(triningsplan);
     }
 
-    public static void updateTrainingsplaene(List<Trainingsplan> trainingsplaene){
-
+    public static void deleteTrainingplan(Trainingsplan trainingsplan)
+    {
         String userID = gibFB().gibfAuth().getCurrentUser().getUid();
-        for(Trainingsplan trainingsplan : trainingsplaene) {
-            Map<String, Object> triningsplan = new HashMap<>();
-            triningsplan.put("trainingsplanId", trainingsplan.getTrainingsplanId());
-            triningsplan.put("tpName", trainingsplan.getTpName());
-            DocumentReference messageRef = gibFB().gibfStore()
-                    .collection("users").document(userID)
-                    .collection("trainingsplaene").document(trainingsplan.getTrainingsplanId() + "");
-            messageRef.set(triningsplan);
+        gibFB().gibfStore().collection("users").document(userID)
+                .collection("trainingsplaene").document(trainingsplan.getTrainingsplanId().toString()).delete();
+    }
+
+//    public static void deleteCrossRefs(Trainingsplan trainingsplan){
+//        String userID = gibFB().gibfAuth().getCurrentUser().getUid();
+//        gibFB().gibfStore().collection("users").document(userID)
+//                .collection("crossRefs").document().
+//    }
+
+
+    public static void updateTrainingsplaene(List<Trainingsplan> trainingsplaene){
+        if(!trainingsplaene.isEmpty()) {
+            String userID = gibFB().gibfAuth().getCurrentUser().getUid();
+            for (Trainingsplan trainingsplan : trainingsplaene) {
+                Map<String, Object> triningsplan = new HashMap<>();
+                triningsplan.put("trainingsplanId", trainingsplan.getTrainingsplanId());
+                triningsplan.put("tpName", trainingsplan.getTpName());
+                DocumentReference messageRef = gibFB().gibfStore()
+                        .collection("users").document(userID)
+                        .collection("trainingsplaene").document(trainingsplan.getTrainingsplanId() + "");
+                messageRef.set(triningsplan);
+            }
         }
     }
+
     public static void updateCrossref(List<TrainingsplanUebungCrossRef> uebungen){
         if(!uebungen.isEmpty()) {
             String userID = gibFB().gibfAuth().getCurrentUser().getUid();

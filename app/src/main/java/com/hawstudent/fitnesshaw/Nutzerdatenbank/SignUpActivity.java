@@ -1,6 +1,7 @@
 package com.hawstudent.fitnesshaw.Nutzerdatenbank;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Build;
@@ -29,6 +30,7 @@ import java.util.List;
 import java.util.Map;
 
 import backend.TrainingsplanUebungCrossRef;
+import backend.TrainingsplanViewModel;
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -38,11 +40,14 @@ public class SignUpActivity extends AppCompatActivity {
     private FirebaseAuth fAuth;
     FirebaseFirestore fStore;
     private String userID;
+    TrainingsplanViewModel trainingsplanViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
+
+        trainingsplanViewModel = new ViewModelProvider(this).get(TrainingsplanViewModel.class);
 
         registerUser = (Button) findViewById(R.id.buttonSignUp2);
         firstName =(EditText) findViewById(R.id.firstName);
@@ -60,6 +65,7 @@ public class SignUpActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 registerUser();
+                finish();
             }
         });
 
@@ -136,6 +142,9 @@ public class SignUpActivity extends AppCompatActivity {
 
             if (task.isSuccessful()) {
                 setData(Arrays.asList(firstname, lastname,email));
+                fAuth.signInWithEmailAndPassword(email, passWord);
+                User.setTrainingsplanViewModel(trainingsplanViewModel);
+                User.loadFromFirebase();
                 Intent intent = new Intent(SignUpActivity.this, DashboardActivity.class);
                 startActivity(intent);
             } else {

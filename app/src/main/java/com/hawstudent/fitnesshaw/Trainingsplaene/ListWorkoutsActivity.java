@@ -27,6 +27,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import backend.Trainingsplan;
+import backend.TrainingsplanUebungCrossRef;
 import backend.TrainingsplanViewModel;
 import backend.Uebung;
 
@@ -109,8 +110,11 @@ public class ListWorkoutsActivity extends AppCompatActivity implements Trainings
                 builder.setPositiveButton("Ja", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        trainingsplanViewModel.deleteTrainingsplan(adapter.getTraingingsplanAt(viewHolder.getAdapterPosition()));
-                        trainingsplanViewModel.deleteCrossRefByTrainingsplan(adapter.getTraingingsplanAt(viewHolder.getAdapterPosition()));
+                        Trainingsplan trainingsplan = adapter.getTraingingsplanAt(viewHolder.getAdapterPosition());
+                        trainingsplanViewModel.deleteTrainingsplan(trainingsplan);
+                        User.deleteTrainingplan(trainingsplan);
+                        trainingsplanViewModel.deleteCrossRefByTrainingsplan(trainingsplan);
+//                        User.deleteCrossRefs(trainingsplan);
                         Toast.makeText(ListWorkoutsActivity.this,
                                 adapter.getTraingingsplanAt(viewHolder.getAdapterPosition()).getTpName() +"  entfernt", Toast.LENGTH_SHORT).show();
                     }
