@@ -23,6 +23,17 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
+<!--    <androidx.recyclerview.widget.RecyclerView-->
+<!--        android:id="@+id/recyclerviewTrainingsPlaene"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_marginTop="50dp"-->
+<!--        android:layout_marginBottom="75dp"-->
+<!--        android:backgroundTint="@color/background"-->
+<!--        android:padding="4dp"-->
+<!--        android:scrollbars="vertical"-->
+<!--        tools:listitem="@layout/leon_trainingsplan_item" />-->
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerviewTrainingsPlaene"
         android:layout_width="match_parent"
@@ -32,7 +43,8 @@
         android:backgroundTint="@color/background"
         android:padding="4dp"
         android:scrollbars="vertical"
-        tools:listitem="@layout/leon_trainingsplan_item" />
+        tools:listitem="@layout/trainingsplan_uebungen_item" />
+
 
     <ImageView
         android:id="@+id/addWorkoutImage"

@@ -22,6 +22,9 @@ public abstract class Datenbank extends RoomDatabase {
     public static synchronized Datenbank getInstance(Context context){
         if (instance == null) {
 
+
+//            instance = Room.databaseBuilder(context.getApplicationContext(),
+//                    Datenbank.class, "Datenbank").fallbackToDestructiveMigration().build();
             instance = Room.databaseBuilder(context.getApplicationContext(),
                     Datenbank.class, "Datenbank").build();
 //            instance = Room.databaseBuilder(context.getApplicationContext(),

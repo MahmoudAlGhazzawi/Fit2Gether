@@ -48,7 +48,6 @@ public class AddTrainingsplanActivity extends AppCompatActivity {
 
                     Intent intent = new Intent(AddTrainingsplanActivity.this, ListWorkoutsActivity.class);
                     startActivity(intent);
-                    overridePendingTransition(android.R.anim.fade_out,android.R.anim.fade_in);
                     finish();
                 }
             }
@@ -59,7 +58,6 @@ public class AddTrainingsplanActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(AddTrainingsplanActivity.this, ListWorkoutsActivity.class);
                 startActivity(intent);
-                overridePendingTransition(android.R.anim.fade_out,android.R.anim.fade_in);
                 finish();
             }
         });

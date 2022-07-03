@@ -31,7 +31,7 @@ public class CrossRefAdapter extends RecyclerView.Adapter<CrossRefAdapter.CrossR
     @NonNull
     @Override
     public CrossRefHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.leon_trainingsplan_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.trainingsplan_uebungen_item, parent, false);
         return new CrossRefHolder(view);
     }
 
@@ -39,6 +39,30 @@ public class CrossRefAdapter extends RecyclerView.Adapter<CrossRefAdapter.CrossR
     public void onBindViewHolder(@NonNull CrossRefHolder holder, int position) {
     TrainingsplanUebungCrossRef currentUebung = uebungen.get(position);
     holder.textUebungName.setText(currentUebung.getUebungName());
+    holder.textKg.setText(currentUebung.getGewicht() + "");
+    holder.textSets.setText(currentUebung.getAnzahlSaetze() + "");
+    holder.textRepeats.setText(currentUebung.getAnzahlWdh() + "");
+
+        if (currentUebung.getUebungName().contains("Pullups")) {
+            holder.imageUebung.setImageResource(R.drawable.pullup_img);
+        } else if (currentUebung.getUebungName().contains("Rudern")) {
+            holder.imageUebung.setImageResource(R.drawable.rudern_img);
+        }else if (currentUebung.getUebungName().contains("Cable Flies")) {
+            holder.imageUebung.setImageResource(R.drawable.cableflies_img);
+        }else if (currentUebung.getUebungName().contains("Bankdruecken")) {
+            holder.imageUebung.setImageResource(R.drawable.bankdruecken_img);
+        }else if (currentUebung.getUebungName().contains("Pushups")) {
+            holder.imageUebung.setImageResource(R.drawable.pushup_img);
+        }else if (currentUebung.getUebungName().contains("Dips")) {
+            holder.imageUebung.setImageResource(R.drawable.dips_img);
+        }else if (currentUebung.getUebungName().contains("Squads")) {
+            holder.imageUebung.setImageResource(R.drawable.squads_img);
+        }else if (currentUebung.getUebungName().contains("LegPress")) {
+            holder.imageUebung.setImageResource(R.drawable.legpress_img);
+        }else if (currentUebung.getUebungName().contains("Calf Raises")) {
+            holder.imageUebung.setImageResource(R.drawable.calfraises_img);
+        }
+
     }
 
     public TrainingsplanUebungCrossRef getCrossRefAt(int position)
@@ -62,10 +86,19 @@ public class CrossRefAdapter extends RecyclerView.Adapter<CrossRefAdapter.CrossR
         private TextView textUebungName;
         private ImageView imageUebung;
 
+        private TextView textKg;
+        private TextView textSets;
+        private TextView textRepeats;
+
         public CrossRefHolder(@NonNull View itemView) {
             super(itemView);
-            textUebungName = itemView.findViewById(R.id.trainingsPlanUeberschrift);
-            imageUebung = itemView.findViewById(R.id.trainingsPlanImage);
+
+            textUebungName = itemView.findViewById(R.id.uebungUeberschriftTrainingsplan);
+            imageUebung = itemView.findViewById(R.id.uebungImageTrainingsplan);
+            textKg = itemView.findViewById(R.id.kgText);
+            textSets = itemView.findViewById(R.id.setsText);
+            textRepeats = itemView.findViewById(R.id.repeatsText);
+
         }
     }
 }

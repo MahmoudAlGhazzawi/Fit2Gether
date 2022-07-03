@@ -204,14 +204,6 @@
                 android:id="@+id/myWorkoutsLayout"
                 layout="@layout/dashboard_item_2"/>
 
-            <include
-                android:id="@+id/searchLayout"
-                layout="@layout/dashboard_item_3"/>
-
-            <include
-                android:id="@+id/calenderLayout"
-                layout="@layout/dashboard_item_4"/>
-
         </LinearLayout>
 
     </ScrollView>
