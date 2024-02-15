@@ -1,11 +1,10 @@
 package backend;
+
 import android.content.Context;
 
-import androidx.lifecycle.ViewModelProvider;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
-import androidx.sqlite.db.SupportSQLiteDatabase;
 
 
 @Database(version = 7, entities = {Trainingsplan.class, Uebung.class, TrainingsplanUebungCrossRef.class

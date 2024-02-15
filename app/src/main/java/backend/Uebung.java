@@ -1,10 +1,7 @@
 package backend;
 
 
-import androidx.annotation.NonNull;
-import androidx.room.ColumnInfo;
 import androidx.room.Entity;
-import androidx.room.OnConflictStrategy;
 import androidx.room.PrimaryKey;
 
 import java.io.Serializable;
@@ -20,7 +17,8 @@ public class Uebung implements Serializable {
 
     public Uebung (){
 
-    };
+    }
+
     public Uebung(String uebungName) {
         this.uebungName = uebungName;
     }

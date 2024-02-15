@@ -19,10 +19,12 @@ public class Trainingsplan implements Serializable {
 
     public Trainingsplan(){
 
+        trainingsplanId = null;
     }
 
     public Trainingsplan(String tpName) {
         this.tpName = tpName;
+        trainingsplanId = null;
     }
 
     public String getTpName() {

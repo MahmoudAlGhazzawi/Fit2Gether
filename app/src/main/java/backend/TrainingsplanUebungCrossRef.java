@@ -29,6 +29,7 @@ public class TrainingsplanUebungCrossRef {
 
     public TrainingsplanUebungCrossRef(){
 
+        trainingsplanId = null;
     }
 
     public void setTrainingsplanId(@NonNull Long trainingsplanId) {
